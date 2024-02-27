@@ -1,0 +1,1 @@
+A HOC is a function that takes a Component as one of its parameters and enhances that component in some way.
