@@ -1,0 +1,39 @@
+# Whats the difference between Object.freeze vs Object.seal ?
+
+Object.freeze: makes the object immutable ( wil prevent addition of new properties and modification of existing properties ).
+
+Eg: 
+======
+let data = {
+ a : 10
+};
+
+Object.freeze(data);
+data.a = 20;
+data.c = 40;
+console.log(a)
+
+O/p:
+=======
+{
+ a : 10
+};
+
+Object.seal will prevent the addition of new properties but allows modification of existing properties.
+
+Eg:
+======
+let data = {
+ a: 10
+};
+
+Object.seal(data);
+data.a = 20;
+data.c = 40;
+console.log(a)
+
+o/p:
+======
+{
+ a: 20
+}
