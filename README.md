@@ -14,4 +14,4 @@
 
 |Sl.No| Questions                                                                         | Output |
 |-----|-----------------------------------------------------------------------------------|--------------------------------------------------------------------|
-| 01.|[What is difference between document.getElementById() and document.querySelector()?](#q-what-is-difference-between-documentgetelementbyid-and-documentqueryselector)| link |
+| 01.|Question| link |
