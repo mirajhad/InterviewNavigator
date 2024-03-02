@@ -1,1 +1,7 @@
 
+What is the difference between Visibility : hidden vs display: none ?
+
+visibility hidden : This will hides the element but it will still takes up the space in the layout. whereas.,
+
+display hidden: will removes the element from the document.
+___________________________________________________________________________________________________________________
