@@ -37,3 +37,72 @@ o/p:
 {
  a: 20
 }
+_______________________________________________________________________________________________________________
+In one of my recent javascript interviews, this simple yet tricky question was asked. Whats the output of below logic ?
+
+let a = 'jscafe'
+a[0] = 'c'
+
+console.log(a)
+________________________________________________________________________________________________________________
+Difference between Object.keys,values and entries ?
+
+Object.keys: This will return array of keys 
+Object.values: This will return array of values 
+Object.entries: This will return array of [key, value] pairs
+
+Eg:
+=============
+let data = { name: "Sai", lang: "English" }; 
+
+Object.keys(data) // ["name","lang"] 
+Object.values(data) // ["Sai","english"]
+Object.entries(data) // [["name","Sai"],["lang","English"]]
+__________________________________________________________________________________________________________________
+In one of my recent javascript interviews, i encountered this question. Whats the output of below logic ?
+
+var x=10;
+function foo(){
+var x = 5;
+console.log(x)
+}
+
+foo();
+console.log(x)
+
+Output will be 5 then 10.
+
+In global scope we are defining x as 10
+In function foo() we are again declaring x as 5 but this will be an entirely new variable attached to the function scope of foo() and will only be available inside it.
+
+So when the function is called, it will log 5 and then once the function finishes execution var x = 5 will no longer exist but the var x = 10 in global scope will be available so it will log 10
+____________________________________________________________________________________________________________________
+ What is the difference between Object.create and Object.assign methods in javascript ?
+
+Object.create: This is used when we want to inherit the properties from an existing object while creating a new object.
+
+let animal = {
+ name: "Animal name"
+};
+
+let cat = Object.create(animal);
+
+Object.assign: This is used when we want to include properties from multiple objects into new object what we are creating.
+
+let teacher = {
+ name: "Saikrishna"
+};
+
+let lesson= {
+lessonName: "Datastructures"
+}
+
+let course = Object.assign({},teacher,lesson);
+__________________________________________________________________________________________________________________
+Different ways to create an object in javascript ?
+
+Using Object literal syntax
+Using Object constructor function
+Using Object.create method
+Using Object.assign Method
+___________________________________________________________________________________________________________________
