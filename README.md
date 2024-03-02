@@ -14,4 +14,4 @@
 
 |Sl.No| Questions                                                                         | Output |
 |-----|-----------------------------------------------------------------------------------|--------------------------------------------------------------------|
-| 01.|Question| link |
+| 01.|Javascript| [link](https://github.com/mirajhad/FullStackInterViewQuestions/blob/main/JavaScript)https://github.com/mirajhad/FullStackInterViewQuestions/blob/main/JavaScript |
