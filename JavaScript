@@ -119,3 +119,254 @@ Modules
 Map,Weakmap,Set,Weakset
 Default parameters
 ______________________________________________________________________________________________________________________
+What is rest operator in javascript ?
+
+Rest operator is used to condense multiple elements into single array or object.
+This is useful when we dont know how many parameters a function may receive and you want to capture all of them as an array.
+
+Eg:
+
+function example(...args){
+console.log(args);
+}
+
+example(1,2,3,4)
+______________________________________________________________________________________________________________________
+What is a spread operator in javascript ?
+
+Spread operator is used to spread or expand the iterable like an array or string into individual elements. 
+
+Uses:
+====
+1. Concatenating arrays.
+const x = [1,2];
+const y = [3,4];
+const z = [...x,...y]; // 1,2,3,4
+
+2. Copying arrays or objects.
+const a = [...x] // 1,2
+
+3. Passing array of values as individual arguments to a function.
+function example(arg1,arg2){}
+example(...x)
+______________________________________________________________________________________________________________________
+Simple Javascript Interview Question: 
+
+let x = function temp(){
+ console.log("Hello")
+}
+
+temp()
+_______________________________________________________________________________________________________________________
+ What is the difference between call(), apply() and bind()?
+
+call method invokes the function immediately with the given this value and allows us to pass the arguments one by one with comma separated.
+
+apply method will invokes the function immediately with the given this value and allows us to send the arguments as an array.
+
+bind method will return a new function with the given this value and arguments provided which can be invoked later in the code.
+___________________________________________________________________________________________________________________________
+"use strict"
+console.log(this)
+
+function data(){
+    console.log(this)
+}
+data()
+_____________________________________________________________________________________________________________________________
+What's the difference between for-in and for-of ?
+
+Both for in and for of are used to iterate over datastructures.
+
+For-in:
+====
+for in iterates over the enumerable property keys of an object.
+
+For-of:
+====
+for of will iterate over the values of an iterable object(Array,string,Nodelists).
+
+let list = [4, 5, 6];
+
+for (let i in list) {
+ console.log(i); // "0", "1", "2",
+}
+
+for (let i of list) {
+ console.log(i); // "4", "5", "6"
+}
+_____________________________________________________________________________________________________________________________
+ What is the difference between Pure and Impure functions?
+
+Pure Functions:
+==========
+Pure functions are the functions which will return same output for same arguments passed to the function.
+This will not have any side effects.
+It does not modify any non local state.
+
+Impure Functions:
+============
+Impure functions are the functions which will return inconsistent output for same arguments passed to the function.
+This will have side effects.
+This will modify non local state.
+_______________________________________________________________________________________________________________________________
+factorial
+const fact=(n)=>{
+    if(n==0 || n==1){
+        return 1
+    }else{
+        return n*fact(n-1);
+    }
+}
+console.log(fact(4))
+________________________________________________________________________________________________________________________________
+What are the differences between map and forEach in javascript ?
+
+map method is used to transform the elements of an array whereas forEach method is used to loop through the elements of an array.
+
+map method will return a new array with the transformed values whereas forEach method will not return a new array.
+
+map method can be used with other array methods like filter. whereas forEach method cannot be used with other array methods as it does not return an array.
+_________________________________________________________________________________________________________________________________
+Write a javascript program to check if a string is pallindrome or not ?
+const checkPalindrome=(str)=>{
+    let len =str.length
+    for(let i=0;i<len/2;i++){
+        if(str[i]!==str[len-i-1]){
+            return "not palindrome"
+        }else{
+            return "palindrome"
+        }
+    }
+}
+console.log(checkPalindrome("amaal"))
+_________________________________________________________________________________________________________________________________
+const removeDuplicate=()=>{
+    let uniqArr=[]
+    let arr=[1,2,1,2,3]
+   for(let i=0;i<arr.length;i++){
+       if(uniqArr.indexOf(arr[i])==-1){
+           uniqArr.push(arr[i]);
+       }
+   }
+   
+console.log(uniqArr)
+}
+removeDuplicate()
+
+___________________________________________________________________________________________________________________________________
+What is the difference between Pass by value and Pass by reference in javascript ?
+
+In Javascript, whenever a function is called, the arguments can be passed in these 2 ways.
+
+1. Primitive datatypes such as string,null,undefined,number boolean are passed by value
+2. Non primitive datatypes such as array,object or functions are passed by reference.
+
+In Pass by value, Parameters passed as an arguments creates their own copy so any changes made inside the function will not affect the original value.
+
+In Pass by reference, Parameters passed as an arguments does not creates their own copy. so any changes made inside the function will affect the original value.
+_________________________________________________________________________________________________________________________________________
+ What are Higher order functions ?
+
+A function which takes another function as an argument or returns a function as output is called higher order function.
+
+Advantages:
+1.Abstraction
+2.Encapsulation
+3.Code reusablity
+4.Concise and readability
+5.Asynchronous programming(functions like settimeout and setinterval often involve hof. They allow to work with asynchronous code in more effecient way)
+6.Callback functions: this is the most common usecase of higher order function.
+______________________________________________________________________________________________________________________________________
+ What is callback in javascript ?
+
+Callback is a function which is passed as an argument to another function which can be executed later.
+
+Some of the common use cases include.,
+1.Handling events (like click ,key press events).
+2.Higher order functions(like map,filter,reduce etc).
+3.Handling asynchronous operations (like reading files, making http requests)
+4.Settimeout.
+_______________________________________________________________________________________________________________________________________
+More tricky: 2 years ago, when an interviewer asked this question, I confidently predicted the output for below program as 1,2,3,4,5,6.
+But its not. This program outputs 6 everytime. Do you know why ? Can you unravel the mystery and explain why ? (Interviewer asks not to use let here 😅)
+function x(){
+   for(var i=0;i<6;i++){
+       setTimeout(()=>{
+           console.log(i)
+       },i*1000)
+   } 
+}
+x()
+__________________________________________________________________________________________________________________________________________
+ What are closures in javascript ?
+
+Function along with its lexical environment (references to its surrounding state) bundled together to form a closure.
+
+Closure gives us access to outer function scope inside an inner function.
+__________________________________________________________________________________________________________________________________________
+What is temporal dead zone in javascript ?
+
+It is a specific period in the execution of javascript code where the variables declared with let and const exists but cannot be accessed until the value is assigned.
+______________________________________________________________________________________________________________________________________________
+What is the output of below logic (Hoisting) ?
+
+getData1()
+getData();
+
+function getData1(){
+ console.log("getData11")
+}
+
+var getData = () => {
+ console.log("Hello")
+}
+
+
+Why we are getting error for arrow function ? 
+When we are executing this logic, as getData is an arrow function.
+In memory allocation phase of execution context, just like it allocates undefined to variables, it will allocate undefined to this getData in the memory. 
+So this time getData behaves like another variable.
+_____________________________________________________________________________________________________________________________________________
+ What is the output of below logic (Hoisting concept) ?
+
+getData();
+console.log(x)
+console.log(getData);
+var x = 10;
+console.log(x);
+function getData(){
+ console.log("Iam here");
+}
+____________________________________________________________________________________________________________________________________________
+What are promises in javascript ?
+
+Promise is an object which represents the eventual completion or failure of an asynchronous operation.
+
+They are used to handle asynchronous operations in javascript. Promise can be in one of these 3 states.,
+fulfilled: If action related to promise is succeded.
+rejected: If action related to promise is failed
+pending: If action related to promise is in pending state.
+
+Promise constructor will take one argument which is a callback function. This function will take two arguments resolve and reject. 
+
+Promise can be consumed by registering the functions using .then() and .catch() methods.
+
+Eg:
+
+let promise = new Promise(()=>{
+ let a = "Hello";
+ let b= "Hello";
+ if(a==b){
+ resolve()
+ } else{
+ reject()
+ }
+})
+
+promise.then(()=>{
+ console.log("Succeded")
+}).catch(()=>{
+ console.log("error")
+})
+________________________________________________________________________________________________________________________________________________
