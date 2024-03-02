@@ -370,3 +370,40 @@ promise.then(()=>{
  console.log("error")
 })
 ________________________________________________________________________________________________________________________________________________
+Is Javascript a statically typed language or a dynamically typed language ?
+
+Javascript is a dynamically typed language. means in dynamically typed languages, all type checks are done at run time i.e., when your program is executing.
+
+So we can just assign anything to the variable and it works with out any error.
+
+For Eg: let myValue;
+ myValue = 1;
+ console.log(myValue) ====> 1
+ myValue = "My Profile";
+ console.log(myValue) ====> My Profile
+________________________________________________________________________________________________________________________________________________
+ When to use Slice and Splice ?
+
+Slice: If i want to create an array that is subset of existing array with out changing the original array then i will use slice.
+
+Eg: let arr = [1,2,3,4,5]; 
+ let newarray = arr.slice(3,4);
+ newarray will be [4]
+
+Splice: If i want to add/delete/replace the existing elements in an array then i will use splice.
+
+Eg: let arr = [1,2,3,4,5,0,10];
+ let newArr = arr.splice(2,4,8,9,6);
+ arr will be [1,2,8,9,6,10]
+ newArr will be [3,4,5,0]
+___________________________________________________________________________________________________________________________________________________
+What is Hoisting ?
+
+In other scripting or server side languages, variables and functions must be declared before using it. Where as in javascript, variables and functions can be used before declaring it. 
+
+The javascript compiler moves all variables and functions on top of their scope so there will not be any error. This is called as Hoisting.
+____________________________________________________________________________________________________________________________________________________
+Null vs Undefined:
+
+Null: If we assign null to a variable, it means it has no value.
+Undefined: means variable has been declared but not assigned any value.
