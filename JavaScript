@@ -106,3 +106,16 @@ Using Object constructor function
 Using Object.create method
 Using Object.assign Method
 ___________________________________________________________________________________________________________________
+ List out some key features of ES6 ?
+
+Let and const declarations
+Arrow functions
+Spreat and rest operators
+Promises
+Destructuring assignment
+Template strings
+Classes 
+Modules
+Map,Weakmap,Set,Weakset
+Default parameters
+______________________________________________________________________________________________________________________
