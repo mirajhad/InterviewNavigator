@@ -23,3 +23,18 @@ In recent reactjs machine coding round, this was asked. Can you solve this ?
 5. Now click on start then timer should continue from paused value.
 6. Clicking on reset will reset the timer to initial value 0.
 _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+In recent reactjs machine coding round, this was asked. Can you solve this ?
+
+1.get the data from below url
+https://datausa.io/api/data?drilldowns=Nation&measures=Population
+2. Display a table which should contain years and population from this api 
+3. Add a input where user can search year or population appy debouncing here.
+4.Add a reset button which will reset the data in table to initial data.
+5. Add delete option in each row which should delete respective row when clicked.
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+In recent reactjs interview, this machine coding problem was asked. Can you solve this ?
+
+1. The UI should look like shown in the image above with 7 boxes shaped in C shape.
+2. On clicking the box, its color changes to green.
+3. When all boxes are green, they should again go back to the previous color yellow, one by one, by a 1-second delay, in the same order as they were clicked.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
