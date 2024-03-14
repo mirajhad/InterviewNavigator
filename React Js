@@ -44,3 +44,8 @@ Lazy loading is a technique used in React to improve performance and reduce the 
 
 To implement lazy loading in React, you can use the "React.lazy" function. This function allows you to load a component lazily, i.e., only when it is needed. 
 _______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+What is useCallback in React ?
+
+usecallback hook will return the memoized version of the callback function that only changes if one of the dependencies have been changed.
+
+It is useful for optimizing performance by preventing unnecessary renders.
