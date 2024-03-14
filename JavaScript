@@ -407,3 +407,15 @@ Null vs Undefined:
 
 Null: If we assign null to a variable, it means it has no value.
 Undefined: means variable has been declared but not assigned any value.
+_________________________________________________________________________________________________________________________________________________________
+What are limitations of arrow functions in javascript ?
+
+Arrow functions are introduced in ES6. They are simple and shorter way to write functions in javascript. 
+
+1. Arrow functions cannot be accessed before initialization
+2. Arrow function does not have access to arguments object
+3. Arrow function does not have their own this. Instead, they inherit this from the surrounding code at the time the function is defined.
+4. Arrow functions cannot be used as constructors. Using them with the 𝙣𝙚𝙬 keyword to create instances throws a TypeError.
+5. Arrow functions cannot be used as generator functions.
+___________________________________________________________________________________________________________________________________________________________
+
