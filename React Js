@@ -49,3 +49,14 @@ What is useCallback in React ?
 usecallback hook will return the memoized version of the callback function that only changes if one of the dependencies have been changed.
 
 It is useful for optimizing performance by preventing unnecessary renders.
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+What is useMemo ?
+
+useMemo is used to memoize the value. means it caches the result of a function and returns the cached value until one of the dependencies has changed.
+
+It is used to optimize the extensive computations. so that they are not recalculated on every render.
+
+const memoizedValue = useMemo(()=>{
+ return computeExtensiveValue(a,b)
+},[a,b]);
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
