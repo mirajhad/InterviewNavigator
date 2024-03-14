@@ -418,4 +418,10 @@ Arrow functions are introduced in ES6. They are simple and shorter way to write 
 4. Arrow functions cannot be used as constructors. Using them with the 𝙣𝙚𝙬 keyword to create instances throws a TypeError.
 5. Arrow functions cannot be used as generator functions.
 ___________________________________________________________________________________________________________________________________________________________
+In my recent javascript interview, i have encountered below question. Comment your answer !!!!
 
+a) 2+2 = ? 
+b) "2"+"2" = ?
+c) 2+2-2 = ?
+d) "2"+"2"-"2" = ?
+__________________________________________________________________________________________________________________________________________________________
