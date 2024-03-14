@@ -38,3 +38,9 @@ In recent reactjs interview, this machine coding problem was asked. Can you solv
 2. On clicking the box, its color changes to green.
 3. When all boxes are green, they should again go back to the previous color yellow, one by one, by a 1-second delay, in the same order as they were clicked.
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+What is Lazy loading in React ?
+
+Lazy loading is a technique used in React to improve performance and reduce the initial load time of web applications. It allows you to split your code into smaller chunks, and load them on demand only when they are needed. This can significantly reduce the amount of JavaScript that needs to be loaded initially, which can improve the page load speed and user experience.
+
+To implement lazy loading in React, you can use the "React.lazy" function. This function allows you to load a component lazily, i.e., only when it is needed. 
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________
