@@ -33,3 +33,49 @@ public class HelloWorld
     }
 }
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+How to reverse the order of words in a given string
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "Hello world how are you";
+        string[] words = input.Split(' ');
+        var reversedWords = words.Reverse();
+        string reversedString = string.Join(" ", reversedWords);
+        Console.WriteLine(reversedString);
+    }
+}
+++++++++++++++++++++++++++++++++++++++++++++++++++
+Reverse Word
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        string word = "Hello";
+        string reversedWord = new string(word.Reverse().ToArray());
+        Console.WriteLine(reversedWord);
+    }
+}
+++++++++++++++++++++++++++++++++++++++++++++++++
+reverse only word
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "Hello world how are you";
+        string[] words = input.Split(' ');
+        var reversedWords = words.Select(word => new string(word.Reverse().ToArray()));
+        string reversedString = string.Join(" ", reversedWords);
+        Console.WriteLine(reversedString); 
+    }
+}
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________
