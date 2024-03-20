@@ -6,7 +6,7 @@ O - Open/Closed Principle. Classes must be open to extension but closed to modif
 L - Liskov principle - If class A is subtype of class B then, Class B should be able to replace Class A with out disrupting the behaviour of our program.
 I - Interface segregation - Larger interfaces must be split into smaller interfaces.
 D - Dependency inversion - High level modules should not depend on low level modules. Both must depend on abstraction.
-________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 What are DRY, YAGNI, KISS principles ?
 
 DRY- Do not repeat yourself.
@@ -18,4 +18,18 @@ Avoid unnecessary features/functionalities to the software. This helps software 
 KISS: Keep the implementation simple,stupid.
 Keeping the software design and implementation as simple as possible.
 This make software more understandable,maintainable and testable.
-___________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+//Remove Vowels
+using System;
+using System.Linq;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        string vowels = "aeiou";
+        string name = "Some Name with vowels";
+        name = new string(name.Where(c => !vowels.Contains(c)).ToArray());
+        Console.WriteLine (name);
+    }
+}
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
