@@ -4,4 +4,20 @@ FROM Customers
 ORDER BY AGE DESC
 OFFSET 1 ROWS
 FETCH NEXT 1 ROWS ONLY
+++++++++++++++++++++++++++++++++++++++++
+ SELECT TOP 1 AGE FROM (
+ SELECT  TOP 2  AGE FROM Customers ORDER BY AGE DESC
+ ) AS INNERQUERY ORDER BY AGE ASC
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+EmpId   Name   ManagerId
+1 John 3
+2 Naresh Null
+3 Mike 2
+
+Mike - Naresh
+Jhon- Mike
+Naresh-null
+SELECT E1.Name AS Employee, E2.Name AS Manager
+FROM YourTableName E1
+LEFT JOIN YourTableName E2 ON E1.ManagerId = E2.EmpId;
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________
