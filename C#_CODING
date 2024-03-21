@@ -1,0 +1,14 @@
+string sort
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        string ar1 = "1,2,1,4,2,1";
+        var data = ar1.Split(',').Select(int.Parse).OrderBy(x => x).ToArray();
+        Console.WriteLine(string.Join(",", data));
+    }
+}
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________
