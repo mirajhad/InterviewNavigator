@@ -1,0 +1,134 @@
+R𝗲𝗽𝗹𝗮𝗰𝗲 𝗶𝗳 𝘀𝘁𝗮𝘁𝗲𝗺𝗲𝗻𝘁 𝘄𝗶𝘁𝗵 𝗡𝘂𝗹𝗹 𝗖𝗼𝗻𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗢𝗽𝗲𝗿𝗮𝘁𝗼𝗿
+
+✅ The 𝗻𝘂𝗹𝗹 𝗰𝗼𝗻𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗼𝗽𝗲𝗿𝗮𝘁𝗼𝗿, also known as the null propagation operator or the safe navigation operator, is a feature introduced in 𝗖# 𝟲.𝟬 that allows you to write cleaner and more concise code when dealing with potentially null reference types.
+
+💡 The 𝗻𝘂𝗹𝗹 𝗰𝗼𝗻𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗼𝗽𝗲𝗿𝗮𝘁𝗼𝗿 is represented by a question mark followed by a period (?.) and is used to access members or invoke methods on an object that may be null. If the object is null, the expression returns null instead of throwing a null reference exception.
+
+🔥 𝗔𝗱𝘃𝗮𝗻𝘁𝗮𝗴𝗲𝘀 𝗼𝗳 𝘂𝘀𝗶𝗻𝗴 𝘁𝗵𝗲 𝗻𝘂𝗹𝗹 𝗰𝗼𝗻𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗼𝗽𝗲𝗿𝗮𝘁𝗼𝗿:
+◾It can make your code more concise and readable.
+◾It can help to avoid null-reference exceptions.
+◾It can be used to chain together multiple member or element accesses, even if some of the members or elements may be null.
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗣𝗿𝗲𝗳𝗲𝗿 𝗔𝗻𝘆() 𝗼𝘃𝗲𝗿 𝗖𝗼𝘂𝗻𝘁()
+
+✅ The 𝗖𝗼𝘂𝗻𝘁() method is used to get the total number of elements in a collection that satisfy a given condition. It returns an integer value representing the count of matching elements.
+
+✅ The 𝗔𝗻𝘆() method is used to quickly determine if a collection contains any elements that satisfy a given condition. It returns a boolean value (true if any element matches the condition, otherwise false).
+
+🚀 Using 𝗔𝗻𝘆() over 𝗖𝗼𝘂𝗻𝘁() can be more efficient when you are only interested in determining whether any element matching a condition exists in the collection. 
+This is because Any() stops iterating through the collection as soon as it finds the first matching element, while Count() iterates through the entire collection to count all matching elements. 
+In cases where the collection is large, Any() can potentially provide better performance.
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔𝗨𝘀𝗲 𝗻𝗮𝗺𝗲𝗼𝗳() 𝘁𝗼 𝗰𝗼𝗻𝘃𝗲𝗿𝘁 𝗮𝗻 𝗲𝗻𝘂𝗺 𝘁𝗼 𝗮 𝘀𝘁𝗿𝗶𝗻𝗴
+
+✅ The 𝗧𝗼𝗦𝘁𝗿𝗶𝗻𝗴 method, inherited from the System.Object class, is used to convert a value into its string representation. It can be overridden in derived classes to provide a meaningful string representation of the object's current state.
+
+✅ The 𝗻𝗮𝗺𝗲𝗼𝗳 keyword, introduced in C# 6.0, is used to get the name of a variable, type, or member as a string at compile-time. It's useful to avoid magic strings in your code and to keep your code refactor-friendly.
+
+🚀 𝗻𝗮𝗺𝗲𝗼𝗳() is the preferred way to convert an enum to a string. This is because nameof() is evaluated at compile time and will inject a string literal that will never change, while ToString() is evaluated at runtime. 
+This means that nameof() is more efficient and can help to improve the performance of your code.
+
+💡 Using 𝗻𝗮𝗺𝗲𝗼𝗳() with enums can lead to mismatched enum member names if the enum changes without recompiling referencing projects, as nameof() provides names at compile-time.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗧𝗵𝗿𝗲𝗲 𝗪𝗮𝘆𝘀 𝗳𝗼𝗿 𝗰𝗵𝗲𝗰𝗸𝗶𝗻𝗴 𝘀𝘁𝗿𝗶𝗻𝗴𝘀
+
+👍 𝗨𝘀𝗶𝗻𝗴 𝗦𝘁𝗮𝗿𝘁𝘀𝗪𝗶𝘁𝗵 𝗮𝗻𝗱 𝗘𝗻𝗱𝘀𝗪𝗶𝘁𝗵 𝗺𝗲𝘁𝗵𝗼𝗱𝘀:
+The StartsWith and EndsWith methods provided by the String class. These methods check whether a string starts or ends with a specified character.
+
+💡 𝗨𝘀𝗶𝗻𝗴 𝗜𝗻𝗱𝗲𝘅𝗲𝗿 𝗣𝗿𝗼𝗽𝗲𝗿𝘁𝘆 𝗮𝗻𝗱 ^ 𝗢𝗽𝗲𝗿𝗮𝘁𝗼𝗿:
+The indexer property allows us to access a specific character in a string by its position. The ^ operator is used to indicate an index from the end of the string.
+
+🔥 𝗨𝘀𝗶𝗻𝗴 𝗟𝗶𝘀𝘁 𝗣𝗮𝘁𝘁𝗲𝗿𝗻:
+The List Pattern feature that was introduced in C# 11. This feature allows us to match an array or a list with a sequence of elements. The .. operator which called Slice Pattern indicates any number of elements in between the first and last element.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔𝗡𝗲𝘀𝘁𝗲𝗱 𝗟𝗼𝗼𝗽𝘀 𝘃𝘀 𝗦𝗲𝗹𝗲𝗰𝘁𝗠𝗮𝗻𝘆
+
+✅ Imagine you have a list of nested collections, like a list of departments where each department holds a list of employees. You want to get all the employees in a single, flat list.
+
+✅ The traditional way to flatten a nested collection without SelectMany would involve using 𝗻𝗲𝘀𝘁𝗲𝗱 𝗹𝗼𝗼𝗽𝘀.
+
+✅ 𝗦𝗲𝗹𝗲𝗰𝘁𝗠𝗮𝗻𝘆 method is a powerful LINQ operator that allows you to flatten nested collections into a single collection.
+
+🔥 𝗦𝗲𝗹𝗲𝗰𝘁𝗠𝗮𝗻𝘆 method simplifies the process and makes the code more readable and concise.
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗨𝘀𝗲 𝘀𝘁𝗿𝗶𝗻𝗴.𝗘𝗾𝘂𝗮𝗹𝘀 𝗶𝗻𝘀𝘁𝗲𝗮𝗱 𝗼𝗳 𝗧𝗼𝗨𝗽𝗽𝗲𝗿()/𝗧𝗼𝗟𝗼𝘄𝗲𝗿() 𝘄𝗵𝗲𝗻 𝗰𝗼𝗺𝗽𝗮𝗿𝗶𝗻𝗴 𝘀𝘁𝗿𝗶𝗻𝗴𝘀
+
+🐌 Using 𝗧𝗼𝗨𝗽𝗽𝗲𝗿() and 𝗧𝗼𝗟𝗼𝘄𝗲𝗿() for case conversion in C# can impact performance due to memory allocation, string copying, and potential garbage collection, especially in situations involving large strings or frequent conversions.
+
+🚀 𝗦𝘁𝗿𝗶𝗻𝗴.𝗘𝗾𝘂𝗮𝗹𝘀 is faster than ToUpper() or ToLower() due to direct character comparison, avoiding memory allocation, and reducing overhead for case-insensitive string comparison.
+
+🔥 To perform string comparison , it's better to use the built-in comparison methods like 𝗦𝘁𝗿𝗶𝗻𝗴.𝗘𝗾𝘂𝗮𝗹𝘀 with appropriate StringComparison options, which handle case-insensitivity and cultural considerations correctly while maintaining better performance and accuracy.
+
+
+ bool isEqual = string.Equals(str1, str2, StringComparison.OrdinalIgnoreCase);
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗣𝗿𝗲𝗳𝗲𝗿 𝗧𝗮𝘀𝗸.𝗪𝗵𝗲𝗻𝗔𝗹𝗹 𝗼𝘃𝗲𝗿 𝗺𝘂𝗹𝘁𝗶𝗽𝗹𝗲 𝗮𝘄𝗮𝗶𝘁𝘀
+
+✅ 𝗧𝗮𝘀𝗸.𝗪𝗵𝗲𝗻𝗔𝗹𝗹 is a method that allows you to await the completion of multiple asynchronous tasks concurrently. It's part of the System.Threading.
+Tasks namespace and is often used in scenarios where you want to wait for multiple asynchronous operations to complete without blocking the main thread.
+
+🚀 Using 𝗧𝗮𝘀𝗸.𝗪𝗵𝗲𝗻𝗔𝗹𝗹 can lead to better performance in scenarios where you have multiple independent asynchronous operations that can be executed concurrently. 
+Instead of awaiting each task one by one, you can use Task.WhenAll to wait for all of them simultaneously, thus potentially reducing the overall waiting time.
+
+💡 Avoid using 𝗧𝗮𝘀𝗸.𝗪𝗵𝗲𝗻𝗔𝗹𝗹 in scenarios where tasks have complex dependencies, require specialized synchronization, have limited available resources, 
+involve mostly synchronous I/O, need isolation of exceptions, or demand sequential execution. Additionally, exercise caution when using it on UI threads,
+and evaluate whether the benefits of concurrency outweigh the potential downsides in terms of performance and control.
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔𝗦𝘄𝗶𝘁𝗰𝗵 𝗘𝘅𝗽𝗿𝗲𝘀𝘀𝗶𝗼𝗻
+
+🕯 The 𝘀𝘄𝗶𝘁𝗰𝗵 𝘀𝘁𝗮𝘁𝗲𝗺𝗲𝗻𝘁 has been part of C# since its early versions. It allows you to evaluate an expression against a series of case values and execute code blocks based on the matched case. 
+Each case value must be a constant value that is known at compile-time. After a case block is executed, you usually need to include a break statement to exit the switch statement.
+
+💡 The 𝘀𝘄𝗶𝘁𝗰𝗵 𝗲𝘅𝗽𝗿𝗲𝘀𝘀𝗶𝗼𝗻 was introduced in C# 8 as a more concise and expressive alternative to the traditional switch statement. It allows you to assign a value to a variable based on the value of an expression. 
+In a switch expression, you use the => syntax to specify the value to assign if the expression matches a certain case. The _ is a discard symbol and is used as the "default" case.
+
+✅ Both the 𝘀𝘄𝗶𝘁𝗰𝗵 𝘀𝘁𝗮𝘁𝗲𝗺𝗲𝗻𝘁 and the 𝘀𝘄𝗶𝘁𝗰𝗵 𝗲𝘅𝗽𝗿𝗲𝘀𝘀𝗶𝗼𝗻 are used for similar purposes, the switch expression offers more concise syntax and greater flexibility for pattern matching and value assignment, making it a more powerful tool for modern C# development.
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿𝘀 𝘃𝘀 𝗠𝗶𝗻𝗶𝗺𝗮𝗹 𝗔𝗣𝗜𝘀
+
+✅ 𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿𝘀 have been the traditional way of building web APIs in .NET . They provide a more organized and structured approach, especially for larger applications with multiple endpoints and complex routing.
+
+✅ 𝗠𝗶𝗻𝗶𝗺𝗮𝗹 𝗔𝗣𝗜𝘀 are introduced in .NET 6 and aim to simplify the process of building small to medium-sized APIs with less ceremony. They are more concise and focus on quick and simple route declaration.
+
+💡 Use 𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿𝘀 when you have a larger, more complex API with many endpoints and you need the structure and organization that controllers provide.
+
+💡 Use 𝗠𝗶𝗻𝗶𝗺𝗮𝗹 𝗔𝗣𝗜𝘀 when you have a smaller API with fewer endpoints and you want a more concise and lightweight approach. Minimal APIs are well-suited for quick prototyping and smaller projects.
+
+🔥 𝗛𝗼𝘄 𝘁𝗼 𝗖𝗼𝗻𝘃𝗲𝗿𝘁 𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝘁𝗼 𝗠𝗶𝗻𝗶𝗺𝗮𝗹 𝗔𝗣𝗜:
+◾ 𝗗𝗿𝗼𝗽 𝗰𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿𝘀: Use functions instead (lambdas with MapGet, etc.).
+◾ 𝗜𝗻𝗷𝗲𝗰𝘁 𝘀𝗲𝗿𝘃𝗶𝗰𝗲𝘀 𝗱𝗶𝗿𝗲𝗰𝘁𝗹𝘆: Pass them as arguments to your functions.
+◾ 𝗨𝘀𝗲 𝗥𝗲𝘀𝘂𝗹𝘁𝘀 𝗳𝗼𝗿 𝗿𝗲𝘀𝗽𝗼𝗻𝘀𝗲𝘀: Simplify response handling.
+◾ 𝗟𝗼𝘀𝗲 𝘁𝗵𝗲 𝗮𝘁𝘁𝗿𝗶𝗯𝘂𝘁𝗲𝘀: Routing happen in the function directly.
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗦𝘁𝗿𝗶𝗻𝗴𝘀 𝘀𝗵𝗼𝘂𝗹𝗱 𝗻𝗼𝘁 𝗯𝗲 𝗰𝗼𝗻𝗰𝗮𝘁𝗲𝗻𝗮𝘁𝗲𝗱 𝘂𝘀𝗶𝗻𝗴 '+' 𝗶𝗻 𝗮 𝗹𝗼𝗼𝗽
+
+🐌 Strings are immutable, which means that once a string object is created, it cannot be modified. When you concatenate strings using the '+' 𝗼𝗽𝗲𝗿𝗮𝘁𝗼𝗿 in a loop, a new string object is created at each iteration, and the previous objects are discarded. This can lead to performance issues, especially when dealing with large strings or a large number of iterations.
+
+🚀 A more efficient approach to string concatenation in C# is to use the 𝗦𝘁𝗿𝗶𝗻𝗴𝗕𝘂𝗶𝗹𝗱𝗲𝗿 𝗰𝗹𝗮𝘀𝘀, which is designed for efficiently building strings in a loop. StringBuilder allows you to append strings without creating new objects each time, which leads to better performance.
+
+💡 𝗦𝘁𝗿𝗶𝗻𝗴𝗕𝘂𝗶𝗹𝗱𝗲𝗿 is more useful when dealing with large strings or a large number of iterations and when we have an unknown amount of strings.
+
+🔥 By using 𝗦𝘁𝗿𝗶𝗻𝗴𝗕𝘂𝗶𝗹𝗱𝗲𝗿, you can significantly reduce memory allocations and improve the performance of your code when you need to concatenate strings in a loop. It is a best practice to use StringBuilder when working with dynamic string building operations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
