@@ -103,13 +103,134 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ✔ 𝗦𝘁𝗿𝗶𝗻𝗴𝘀 𝘀𝗵𝗼𝘂𝗹𝗱 𝗻𝗼𝘁 𝗯𝗲 𝗰𝗼𝗻𝗰𝗮𝘁𝗲𝗻𝗮𝘁𝗲𝗱 𝘂𝘀𝗶𝗻𝗴 '+' 𝗶𝗻 𝗮 𝗹𝗼𝗼𝗽
 
-🐌 Strings are immutable, which means that once a string object is created, it cannot be modified. When you concatenate strings using the '+' 𝗼𝗽𝗲𝗿𝗮𝘁𝗼𝗿 in a loop, a new string object is created at each iteration, and the previous objects are discarded. This can lead to performance issues, especially when dealing with large strings or a large number of iterations.
+🐌 Strings are immutable, which means that once a string object is created, it cannot be modified. When you concatenate strings using the '+' 𝗼𝗽𝗲𝗿𝗮𝘁𝗼𝗿 in a loop, a new string object is created at each iteration, and the previous objects are discarded. 
+This can lead to performance issues, especially when dealing with large strings or a large number of iterations.
 
-🚀 A more efficient approach to string concatenation in C# is to use the 𝗦𝘁𝗿𝗶𝗻𝗴𝗕𝘂𝗶𝗹𝗱𝗲𝗿 𝗰𝗹𝗮𝘀𝘀, which is designed for efficiently building strings in a loop. StringBuilder allows you to append strings without creating new objects each time, which leads to better performance.
+🚀 A more efficient approach to string concatenation in C# is to use the 𝗦𝘁𝗿𝗶𝗻𝗴𝗕𝘂𝗶𝗹𝗱𝗲𝗿 𝗰𝗹𝗮𝘀𝘀, which is designed for efficiently building strings in a loop. StringBuilder allows you to append strings without creating new objects each time, 
+which leads to better performance.
 
 💡 𝗦𝘁𝗿𝗶𝗻𝗴𝗕𝘂𝗶𝗹𝗱𝗲𝗿 is more useful when dealing with large strings or a large number of iterations and when we have an unknown amount of strings.
 
 🔥 By using 𝗦𝘁𝗿𝗶𝗻𝗴𝗕𝘂𝗶𝗹𝗱𝗲𝗿, you can significantly reduce memory allocations and improve the performance of your code when you need to concatenate strings in a loop. It is a best practice to use StringBuilder when working with dynamic string building operations.
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗧𝗵𝗿𝗲𝗲 𝘄𝗮𝘆𝘀 𝘁𝗼 𝗖𝗵𝗲𝗰𝗸 𝗳𝗼𝗿 𝗻𝗼𝘁 𝗻𝘂𝗹𝗹
+
+💡 𝗶𝗳 (𝘀𝘁𝘂𝗱𝗲𝗻𝘁 != 𝗻𝘂𝗹𝗹) { }
+This is the traditional way of checking for not null. It can be overloaded by the type of the object. This means that some types may define their own logic for comparing with null, which may not be what you expect.
+
+👍 𝗶𝗳 (𝘀𝘁𝘂𝗱𝗲𝗻𝘁 𝗶𝘀 𝗻𝗼𝘁 𝗻𝘂𝗹𝗹) { }
+Introduced in C# 9.0, this syntax provides a more readable way of checking for not null compared to the traditional approach.
+
+🔥 𝗶𝗳 (𝘀𝘁𝘂𝗱𝗲𝗻𝘁 𝗶𝘀 {}) { }
+This is another way introduced in C# 8.0 to perform a not null check.
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗨𝘀𝗲 𝗘𝘅𝗶𝘀𝘁𝘀 𝗶𝗻𝘀𝘁𝗲𝗮𝗱 𝗼𝗳 𝗔𝗻𝘆 𝘄𝗶𝘁𝗵 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻𝘀
+
+✅ 𝗘𝘅𝗶𝘀𝘁𝘀 is a method that is available on collections like List<T> and Array types. It checks whether an element that satisfies the condition exists in the list or array.
+
+✅ 𝗔𝗻𝘆 is a LINQ method that works with any IEnumerable<T> (which includes arrays, lists, and other collection types). It checks whether any element in the IEnumerable<T> satisfies the condition.
+
+🚀 𝗘𝘅𝗶𝘀𝘁𝘀 is generally faster than Any. This is because Exists can take advantage of the internal implementation of List<T> to perform the check more efficiently. Exists doesn't require the overhead of creating an enumerator that Any does.
+
+💡 If you are working with collections other than List<T> or Array, or if you want your code to work with any type of collection in the future, it's better to use 𝗔𝗻𝘆.
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗣𝗮𝗿𝗮𝗹𝗹𝗲𝗹 𝗙𝗼𝗿𝗘𝗮𝗰𝗵
+
+🐌 The regular 𝗳𝗼𝗿𝗲𝗮𝗰𝗵 loop is a sequential construct. It iterates over a collection or an enumerable in a single-threaded manner, processing each element one after the other. 
+It's a good choice when the tasks performed inside the loop are relatively simple and quick to execute, and there's no need to parallelize them.
+
+🚀 The 𝗣𝗮𝗿𝗮𝗹𝗹𝗲𝗹.𝗙𝗼𝗿𝗘𝗮𝗰𝗵 construct is part of the System.Threading.Tasks namespace and is designed for parallel execution of tasks across multiple threads. It divides the input collection into smaller partitions and processes them concurrently on separate threads.
+
+✅ The performance of 𝗳𝗼𝗿𝗲𝗮𝗰𝗵 and 𝗣𝗮𝗿𝗮𝗹𝗹𝗲𝗹.𝗙𝗼𝗿𝗘𝗮𝗰𝗵 depends on the specific scenario. In general, Parallel.ForEach can be faster than foreach if the collection is large and the work being done is well-suited for parallel execution. However, 
+there are some cases where foreach may be faster than Parallel.ForEach.
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗨𝘀𝗲 𝗖𝗼𝗻𝘁𝗮𝗶𝗻𝘀 𝗶𝗻𝘀𝘁𝗲𝗮𝗱 𝗼𝗳 𝗔𝗻𝘆 𝗳𝗼𝗿 𝘀𝗶𝗺𝗽𝗹𝗲 𝗲𝗾𝘂𝗮𝗹𝗶𝘁𝘆 𝗰𝗵𝗲𝗰𝗸𝘀
+
+🐌 𝗔𝗻𝘆 is a more general method that checks if any element in the collection satisfies a provided condition. The condition is represented as a lambda expression, which adds a level of overhead.
+
+🚀 The 𝗖𝗼𝗻𝘁𝗮𝗶𝗻𝘀 method is simpler and more efficient when you're checking for the presence of a specific item in a collection. This is because Contains directly checks for the equality of each element to the specified value, 
+which can be done very quickly, especially if the collection type has optimized this operation.
+
+✅ The actual performance difference may be negligible unless you're working with large collections or performing the operation many times. The Any method is more flexible and can handle more complex conditions, 
+but for simple equality checks, Contains is the better choice.
+
+💡 This tip applies to the following collection types:
+◾List<T>
+◾HashSet<T>
+◾SortedSet<T>
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗨𝘀𝗲 𝗙𝗶𝗻𝗱 𝗶𝗻𝘀𝘁𝗲𝗮𝗱 𝗼𝗳 𝗙𝗶𝗿𝘀𝘁𝗢𝗿𝗗𝗲𝗳𝗮𝘂𝗹𝘁 𝘄𝗶𝘁𝗵 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻𝘀
+
+✅ Both 𝗙𝗶𝗿𝘀𝘁𝗢𝗿𝗗𝗲𝗳𝗮𝘂𝗹𝘁 and 𝗙𝗶𝗻𝗱 are used to find the first element in a collection that meets a specific condition.
+
+🐌 𝗙𝗶𝗿𝘀𝘁𝗢𝗿𝗗𝗲𝗳𝗮𝘂𝗹𝘁: Iterates through all elements until it finds a match, leading to slower performance for large collections.
+
+🚀 𝗙𝗶𝗻𝗱: Can potentially be faster for in-memory collections (like List<T>) because it can potentially use direct indexing to locate the element.
+
+💡 Both 𝗙𝗶𝗻𝗱 and 𝗙𝗶𝗿𝘀𝘁𝗢𝗿𝗗𝗲𝗳𝗮𝘂𝗹𝘁 return default values if no matching element is found in the collection.
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗨𝘀𝗲 '𝗠𝗶𝗻𝗕𝘆' 𝗼𝗿 '𝗠𝗮𝘅𝗕𝘆' 𝗶𝗻𝘀𝘁𝗲𝗮𝗱 𝗼𝗳 𝗼𝗿𝗱𝗲𝗿𝗶𝗻𝗴 𝗮𝗻𝗱 𝘁𝗮𝗸𝗶𝗻𝗴 '𝗙𝗶𝗿𝘀𝘁' 𝗼𝗿 '𝗟𝗮𝘀𝘁'
+
+✅ LINQ 𝗠𝗶𝗻𝗕𝘆 and 𝗠𝗮𝘅𝗕𝘆 are extension methods that allow you to find the minimum or maximum element in a sequence based on a specified property. They were introduced in .𝗡𝗘𝗧 𝟲.
+
+💡 Simplify LINQ expression by Use 𝗠𝗶𝗻𝗕𝘆 or 𝗠𝗮𝘅𝗕𝘆 instead of ordering and taking 'First' or 'Last'
+
+🔥 𝗧𝗵𝗲 𝗮𝗱𝘃𝗮𝗻𝘁𝗮𝗴𝗲𝘀 𝗼𝗳 𝘂𝘀𝗶𝗻𝗴 𝗟𝗜𝗡𝗤 𝗠𝗶𝗻𝗕𝘆 𝗮𝗻𝗱 𝗠𝗮𝘅𝗕𝘆:
+◾They are more concise and easier to read.
+◾They are more efficient, as they do not need to sort the entire sequence.
+◾They can be used with any type of sequence, including sequences of objects.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗥𝗲𝗽𝗹𝗮𝗰𝗲 𝗶𝗳 𝘀𝘁𝗮𝘁𝗲𝗺𝗲𝗻𝘁 𝘄𝗶𝘁𝗵 𝗡𝘂𝗹𝗹 𝗖𝗼𝗻𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗢𝗽𝗲𝗿𝗮𝘁𝗼𝗿
+
+✅ The 𝗻𝘂𝗹𝗹 𝗰𝗼𝗻𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗼𝗽𝗲𝗿𝗮𝘁𝗼𝗿, also known as the null propagation operator or the safe navigation operator, is a feature introduced in 𝗖# 𝟲.𝟬 that allows you to write cleaner and more concise code when dealing with potentially null reference types.
+
+💡 The 𝗻𝘂𝗹𝗹 𝗰𝗼𝗻𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗼𝗽𝗲𝗿𝗮𝘁𝗼𝗿 is represented by a question mark followed by a period (?.) and is used to access members or invoke methods on an object that may be null. If the object is null, the expression returns null instead of 
+throwing a null reference exception.
+
+🔥 𝗔𝗱𝘃𝗮𝗻𝘁𝗮𝗴𝗲𝘀 𝗼𝗳 𝘂𝘀𝗶𝗻𝗴 𝘁𝗵𝗲 𝗻𝘂𝗹𝗹 𝗰𝗼𝗻𝗱𝗶𝘁𝗶𝗼𝗻𝗮𝗹 𝗼𝗽𝗲𝗿𝗮𝘁𝗼𝗿:
+◾It can make your code more concise and readable.
+◾It can help to avoid null-reference exceptions.
+◾It can be used to chain together multiple member or element accesses, even if some of the members or elements may be null.
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗨𝘀𝗲 𝗪𝗵𝗲𝗿𝗲 𝗯𝗲𝗳𝗼𝗿𝗲 𝗢𝗿𝗱𝗲𝗿𝗕𝘆
+
+🚀 In LINQ queries, the order in which you apply operations can affect performance. If you filter a collection using 𝗪𝗵𝗲𝗿𝗲 before sorting it with 𝗢𝗿𝗱𝗲𝗿𝗕𝘆, you reduce the number of items that need to be sorted. 
+Sorting is generally more computationally expensive than filtering, so this can result in significant performance benefits, especially for larger collections.
+
+🔥 This approach enhances performance because we're sorting a smaller subset of the original data and improves code readability by breaking down the operations into logical steps.
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗨𝘀𝗲 𝗧𝗿𝘂𝗲𝗙𝗼𝗿𝗔𝗹𝗹 𝗶𝗻𝘀𝘁𝗲𝗮𝗱 𝗼𝗳 𝗔𝗹𝗹 𝘄𝗶𝘁𝗵 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻𝘀
+
+✅ The 𝗔𝗹𝗹 extension method is part of the LINQ extension methods. It can be used with any collection that implements the IEnumerable<T> interface, including arrays, lists, dictionaries, etc. The All method checks whether all 
+elements in a collection satisfy a specific condition and returns a boolean value (true if all elements match the condition, false otherwise). It is used with lambda expressions or predicates.
+
+✅ The 𝗧𝗿𝘂𝗲𝗙𝗼𝗿𝗔𝗹𝗹 method is a collection specific method that is available for some collections, such as List<T>. It is used to determine whether every element in the List<T> matches the conditions defined by a delegate. 
+This method takes a predicate delegate as an argument and checks whether all elements in the list satisfy the specified conditions. It returns a boolean value (true if all elements match the condition, false otherwise).
+
+🚀 𝗧𝗿𝘂𝗲𝗙𝗼𝗿𝗔𝗹𝗹 is faster than All due to its use of a for loop with array indexing, while All relies on a foreach loop based on IEnumerable and IEnumerator interfaces, involving method calls for each iteration.
+
+💡 This tip applies to the following collection types:
+◾ List
+◾ Array
+◾ ImmutableList
+◾ ImmutableList.Builder
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ 𝗣𝗿𝗲𝗳𝗲𝗿 𝗔𝘀𝗦𝗽𝗮𝗻 𝗼𝘃𝗲𝗿 𝗦𝘂𝗯𝘀𝘁𝗿𝗶𝗻𝗴
+
+🐌 The 𝗦𝘂𝗯𝘀𝘁𝗿𝗶𝗻𝗴 is a method that returns a new string that is a substring of the original string. It creates a new string object and copies the characters from the original string to the new substring. 
+This can have an impact on performance and memory usage, especially when dealing with large strings or frequent substring operations.
+
+🚀 The 𝗔𝘀𝗦𝗽𝗮𝗻 is a method that returns a ReadOnlySpan<char> from the original string. A ReadOnlySpan is a lightweight, stack allocated view over the data, and it doesn't create a new string object or copy the characters. 
+This can lead to better performance and reduced memory overhead, especially in scenarios where you need to work with portions of a string without the need for actual string manipulation.
+
+💡 Many APIs that accept strings also have overloads that accept a ReadOnlySpan<char> argument. When such overloads are available, you can improve performance by calling AsSpan instead of Substring.
+
+✅ However, keep in mind that there are scenarios where using Substring might still be appropriate, such as when you need a copy of the substring.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+✔ Use default arguments instead of short circuiting or conditionals
+
+Using default arguments can make your code cleaner and more readable, as you don't need to use short circuiting or conditionals to handle cases where a parameter is not provided. 
+It also makes it easier to understand the default behavior of a method, as the default values are explicitly defined in the method signature.
 
 
 
