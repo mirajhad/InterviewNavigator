@@ -1,1 +1,4 @@
 git commit -am "message"
+
+The Clean All (discard all changes) 
+git clean -fd
