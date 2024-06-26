@@ -19,19 +19,7 @@ KISS: Keep the implementation simple,stupid.
 Keeping the software design and implementation as simple as possible.
 This make software more understandable,maintainable and testable.
 ______________________________________________________________________________________________________________________________________________________________________________________________________________
-//Remove Vowels
-using System;
-using System.Linq;
-public class HelloWorld
-{
-    public static void Main(string[] args)
-    {
-        string vowels = "aeiou";
-        string name = "Some Name with vowels";
-        name = new string(name.Where(c => !vowels.Contains(c)).ToArray());
-        Console.WriteLine (name);
-    }
-}
+
 _______________________________________________________________________________________________________________________________________________________________________________________________________________
 How to reverse the order of words in a given string
 using System;
