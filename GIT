@@ -6,3 +6,7 @@ git clean -fd
 
 How do you move a commit to the staging area in git?
 git reset --soft HEAD~1
+
+
+Pushing empty commits to remote
+git commit --allow-empty -m "Trigger Build"
