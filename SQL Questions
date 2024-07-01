@@ -1,0 +1,11 @@
+SP vs Function
+Functions are computed values and cannot perform permanent environmental changes to SQL Server (i.e., no INSERT or UPDATE statements allowed).
+	                                                           Stored Procedure	                                         Function
+Returns	                                                    Zero or more values	                              A single value (which may be a scalar or a table)
+Can use transaction?	                                           Yes	                                                      No
+Can output to parameters?	                                       Yes	                                                      No
+Can call each other?	                                     Can call a function	                                 Cannot call a stored procedure
+Usable in SELECT, WHERE and HAVING statements?                  	No	                                                      Yes
+Supports exception handling (via try/catch)?	                    Yes	                                                       No
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
