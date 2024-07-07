@@ -10,3 +10,14 @@ git reset --soft HEAD~1
 
 Pushing empty commits to remote
 git commit --allow-empty -m "Trigger Build"
+
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Add existing repo
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/username/repo.git
+git push --set-upstream origin master
+git pull origin master --allow-unrelated-histories
+git merge origin/master
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________
