@@ -1,2 +1,3 @@
+# Click on link to see
 
-[Passing Data From ChildToParent]([http://example.com](https://stackblitz.com/edit/vitejs-vite-axfiwj?file=index.html&terminal=dev))
+ 1. [Passing Data From ChildToParent](https://stackblitz.com/edit/vitejs-vite-axfiwj?file=index.html&terminal=dev)
