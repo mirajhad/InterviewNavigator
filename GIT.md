@@ -1,15 +1,15 @@
 git commit -am "message"
 
-The Clean All (discard all changes) 
-git clean -fd
+## The Clean All (discard all changes) 
+`git clean -fd`
 
 
-How do you move a commit to the staging area in git?
-git reset --soft HEAD~1
+## How do you move a commit to the staging area in git?
+`git reset --soft HEAD~1`
 
 
-Pushing empty commits to remote
-git commit --allow-empty -m "Trigger Build"
+## Pushing empty commits to remote
+`git commit --allow-empty -m "Trigger Build"`
 
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 Add existing repo
