@@ -96,3 +96,22 @@ public class Program
 	}
 }
 ```
+## Sum of digit
+```
+using System;
+				
+public class Program
+{
+	public static void Main()
+	{
+		int number = 123;
+        int sum = 0;
+        while (number > 0)
+        {
+            sum =sum+ number % 10;	 
+            number =number/10;     
+        }
+        Console.WriteLine($"Sum of digits: {sum}");
+	}
+}
+```
