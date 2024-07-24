@@ -108,10 +108,31 @@ public class Program
         int sum = 0;
         while (number > 0)
         {
-            sum =sum+ number % 10;	 
+            sum = sum+ number % 10;	 
             number =number/10;     
         }
         Console.WriteLine($"Sum of digits: {sum}");
+	}
+}
+```
+## Reverse digit
+```
+using System;
+				
+public class Program
+{
+	public static void Main()
+	{
+		int reversed = 0;
+		int number = 12345;
+
+        while (number > 0)
+        {
+            int digit = number % 10;       // Get the last digit
+            reversed = reversed * 10 + digit;  // Append digit to reversed number
+            number /= 10;                 // Remove the last digit
+        }
+        Console.WriteLine(reversed);
 	}
 }
 ```
