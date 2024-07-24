@@ -80,3 +80,19 @@ public class Program
 	}
 }
 ```
+## Count occurance
+```
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string source ="miraaj";
+		int count = 0;
+		foreach (char c in source) 
+  		if (c == 'a') count++;
+		Console.WriteLine(count);
+	}
+}
+```
