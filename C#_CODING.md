@@ -1,4 +1,5 @@
-string sort
+## String sort
+```
 using System;
 using System.Linq;
 
@@ -11,7 +12,9 @@ class Program
         Console.WriteLine(string.Join(",", data));
     }
 }
+```
 ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+```
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -25,8 +28,10 @@ public class HelloWorld
         Console.WriteLine(string.Join(" ", sortedNumbers));
     }
 }
+```
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-//Remove Vowels
+## Remove Vowels
+```
 using System;
 using System.Linq;
 public class HelloWorld
@@ -39,9 +44,11 @@ public class HelloWorld
         Console.WriteLine (name);
     }
 }
+```
 _________________________________________________________________________________________________________________________________________________________
 ## Remove Duplicate
-`using System;
+```
+using System;
 using System.Linq;
 					
 public class Program
@@ -52,5 +59,24 @@ public class Program
 		string newString = string.Join(" ", originalString.ToCharArray().Distinct());
 		Console.WriteLine(newString);
 	}
-}`
+}
+```
 ___________________________________________________________________________________________________________________________________________________
+## Remove duplicate
+```
+using System;				
+public class Program
+{
+	public static void Main()
+	{
+		string key="mirajahhhh";
+		string result ="";
+		foreach(var value in key){
+			if(result.IndexOf(value) == -1){
+				result += value;
+			}			
+		}
+		Console.WriteLine(result);
+	}
+}
+```
