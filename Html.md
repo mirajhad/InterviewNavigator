@@ -5,8 +5,10 @@ Eg: header,article,nav,footer,section etc.
 
 Non-semantic elements: They acts as placeholders but does not describe what type of content they hold.
 Eg: div,span etc.
-__________________________________________________________________________________________________________________________________________________
-In one of my frontend machine coding interviews, i was asked to resolve below issue in hashtag#css ? Add your comments on how you will resolve this issue 
+
+---
+
+In one of my frontend machine coding interviews, i was asked to resolve below issue in hashtag#css ? Add your comments on how you will resolve this issue
 
 play with logic in this fiddle: https://jsfiddle.net/gzfjyh45/16/
 
@@ -15,7 +17,8 @@ play with logic in this fiddle: https://jsfiddle.net/gzfjyh45/16/
 
 NOTE: Should not change existing width, height & border.
 
-Below is the logic that you need to modify. 
+Below is the logic that you need to modify.
+
 <div class="container">
  <div class="block">1</div>
  <div class="block">2</div>
@@ -33,7 +36,9 @@ Below is the logic that you need to modify.
  height: 60px;
  width: 60px;
 }
-________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+---
+
 What is viewport ?
 
 It is the area of the webpage in which the content is visible to the user.
@@ -47,4 +52,7 @@ meta tags are placed inside the head section of html document and will provide a
 
 It contains below attributes.,
 name,content,charset,http-equiv.
-____________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+# target="_blank" vs. target="_new"
+
+---
