@@ -96,6 +96,27 @@ public class Program
 	}
 }
 ```
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+					
+public class Program
+{
+	public static void Main()
+	{
+		List<int> numbers = new List<int>{1,3,3,2,1};
+		
+		var occurances = numbers.GroupBy(x=>x)
+			.Select(g => new{Number = g.Key, Count= g.Count()});
+		
+		foreach(var occ in occurances)
+		{
+			Console.WriteLine($"{occ.Number}={occ.Count}");
+		}
+	}
+}
+```
 ## Sum of digit
 ```
 using System;
@@ -148,3 +169,4 @@ if n <= 1 return
 else
 return fib(n-1) + fib(n-1)
 ```
+
