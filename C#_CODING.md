@@ -169,4 +169,20 @@ if n <= 1 return
 else
 return fib(n-1) + fib(n-1)
 ```
+##  Using string.Join
+```
+using System;
+using System.Collections.Generic;
 
+class Program
+{
+    static void Main()
+    {
+        var list = new List<int> { 1, 2, 3, 4, 5 };
+
+        // Print the list as a comma-separated string
+        Console.WriteLine(string.Join(", ", list));
+    }
+}
+
+```
