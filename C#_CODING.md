@@ -136,3 +136,15 @@ public class Program
 	}
 }
 ```
+## Factorial
+```
+if n = 0 return 1
+else
+return fact(n-1)*n
+```
+## Fibonacci
+```
+if n <= 1 return
+else
+return fib(n-1) + fib(n-1)
+```
