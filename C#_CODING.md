@@ -186,3 +186,22 @@ class Program
 }
 
 ```
+## Reverse String
+```
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string str = "miraaj";
+		char[] charArray = str.ToCharArray(); 
+  		for (int i = 0, j = str.Length - 1; i < j; i++, j--) 
+  		{ 
+      		charArray[i] = str[j]; 
+      		charArray[j] = str[i]; 
+  		} 
+  		Console.WriteLine(charArray); 
+	}
+}
+```
