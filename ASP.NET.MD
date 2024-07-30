@@ -1,13 +1,14 @@
-
-What are solid principles ?
+# What are solid principles ?
 
 S- Single responsibility - Each class should have single job/responsibility.
 O - Open/Closed Principle. Classes must be open to extension but closed to modification.
 L - Liskov principle - If class A is subtype of class B then, Class B should be able to replace Class A with out disrupting the behaviour of our program.
 I - Interface segregation - Larger interfaces must be split into smaller interfaces.
 D - Dependency inversion - High level modules should not depend on low level modules. Both must depend on abstraction.
-_____________________________________________________________________________________________________________________________________________________________________________________________________________
-What are DRY, YAGNI, KISS principles ?
+
+---
+
+# What are DRY, YAGNI, KISS principles ?
 
 DRY- Do not repeat yourself.
 Avoid duplication. Makes the software more maintainable and less error-prone.
@@ -18,10 +19,12 @@ Avoid unnecessary features/functionalities to the software. This helps software 
 KISS: Keep the implementation simple,stupid.
 Keeping the software design and implementation as simple as possible.
 This make software more understandable,maintainable and testable.
-______________________________________________________________________________________________________________________________________________________________________________________________________________
 
-_______________________________________________________________________________________________________________________________________________________________________________________________________________
-How to reverse the order of words in a given string
+---
+
+---
+
+# How to reverse the order of words in a given string
 using System;
 using System.Linq;
 
@@ -63,16 +66,17 @@ class Program
         string[] words = input.Split(' ');
         var reversedWords = words.Select(word => new string(word.Reverse().ToArray()));
         string reversedString = string.Join(" ", reversedWords);
-        Console.WriteLine(reversedString); 
+        Console.WriteLine(reversedString);
     }
 }
-_______________________________________________________________________________________________________________________________________________________________________________________________________________
+
+---
+
 numbers.Insert(0, elementToAdd);
 numbers.Add(1)'
 
-
  string s = "Foo";
- string paddedLeft = s.PadLeft(5);        
+ string paddedLeft = s.PadLeft(5);
 // paddedLeft = "  Foo" (pads with spaces by default)
  string paddedRight = s.PadRight(6, '+'); // paddedRight = "Foo+++
 
@@ -88,7 +92,7 @@ string HelloWorld = "Hello World";
 
  string first = "Hello ";
  string second = "World";
- Concat method, or (much easier) using the 
+ Concat method, or (much easier) using the
  string concat = first + second; // concat = "Hello World"
  concat = String.Concat(first, second); // concat = "Hello World"
 
@@ -105,7 +109,7 @@ string HelloWorld = "Hello World";
  var y = String.Format("{0:y}", dt); // "August 2016"                         YearMonth
  var r = String.Format("{0:r}", dt); // "SMon, 01 Aug 2016 18:50:23 GMT"      RFC1123
  var s = String.Format("{0:s}", dt); // "2016-08-01T18:50:23"                 SortableDateTime
- var u = String.Format("{0:u}", dt); // "2016-08-01 18:50:23Z"   
+ var u = String.Format("{0:u}", dt); // "2016-08-01 18:50:23Z"
 
 var year =       String.Format("{0:y yy yyy yyyy}", dt); // "16 16 2016 2016"  year
  var month =      String.Format("{0:M MM MMM MMMM}", dt); // "8 08 Aug August"  month
@@ -117,4 +121,16 @@ var year =       String.Format("{0:y yy yyy yyyy}", dt); // "16 16 2016 2016"  y
  var fraction2 =  String.Format("{0:F FF FFF FFFF}", dt); // "2 23 23 23"       without zeroes
  var period =     String.Format("{0:t tt}",          dt); // "P PM"             A.M. or P.M.
  var zone =       String.Format("{0:z zz zzz}",      dt); // "+0 +00 +00:00"    time zone
-_______________________________________________________________________________________________________________________________________________________________________________________________________________
+
+---
+
+# Return Type
+
+Return View
+Return partial View
+Redirect
+Redirect To Action
+Return content
+Return JSON
+Return JavaScript
+Return File
