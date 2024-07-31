@@ -25,6 +25,7 @@ This make software more understandable,maintainable and testable.
 ---
 
 # How to reverse the order of words in a given string
+
 using System;
 using System.Linq;
 
@@ -120,7 +121,7 @@ var year =       String.Format("{0:y yy yyy yyyy}", dt); // "16 16 2016 2016"  y
  var fraction =   String.Format("{0:f ff fff ffff}", dt); // "2 23 230 2300"    sec.fraction
  var fraction2 =  String.Format("{0:F FF FFF FFFF}", dt); // "2 23 23 23"       without zeroes
  var period =     String.Format("{0:t tt}",          dt); // "P PM"             A.M. or P.M.
- var zone =       String.Format("{0:z zz zzz}",      dt); // "+0 +00 +00:00"    time zone
+ var zone =       String.Format("{0:z zz zzz}",      dt); // "+0 +00 +00:00"
 
 ---
 
@@ -134,3 +135,11 @@ Return content
 Return JSON
 Return JavaScript
 Return File
+
+# Repository Pattern
+
+Design Pattern to separate the data access layer from application
+
+Provides Interface without exposing implementation
+
+Helps create abstraction
