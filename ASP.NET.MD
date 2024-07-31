@@ -3,7 +3,7 @@
 S- Single responsibility - Each class should have single job/responsibility.
 O - Open/Closed Principle. Classes must be open to extension but closed to modification.
 L - Liskov principle - If class A is subtype of class B then, Class B should be able to replace Class A with out disrupting the behaviour of our program.
-I - Interface segregation - Larger interfaces must be split into smaller interfaces.
+I - Interface segregation - Clients should not be forced to depend on methods that they do not use.
 D - Dependency inversion - High level modules should not depend on low level modules. Both must depend on abstraction.
 
 ---
