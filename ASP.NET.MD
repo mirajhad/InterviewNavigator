@@ -143,3 +143,10 @@ Design Pattern to separate the data access layer from application
 Provides Interface without exposing implementation
 
 Helps create abstraction
+
+
+## What is the difference between const and readonly in C#?
+
+`const`: Can't be changed anywhere.
+
+`readonly`: This value can only be changed in the constructor. Can't be changed in normal functions.

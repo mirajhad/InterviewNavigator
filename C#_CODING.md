@@ -1,4 +1,5 @@
 ## String sort
+
 ```
 using System;
 using System.Linq;
@@ -13,7 +14,9 @@ class Program
     }
 }
 ```
-___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+---
+
 ```
 using System;
 using System.Linq;
@@ -29,8 +32,11 @@ public class HelloWorld
     }
 }
 ```
-____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+---
+
 ## Remove Vowels
+
 ```
 using System;
 using System.Linq;
@@ -45,12 +51,15 @@ public class HelloWorld
     }
 }
 ```
-_________________________________________________________________________________________________________________________________________________________
+
+---
+
 ## Remove Duplicate
+
 ```
 using System;
 using System.Linq;
-					
+				
 public class Program
 {
 	public static void Main()
@@ -61,10 +70,13 @@ public class Program
 	}
 }
 ```
-___________________________________________________________________________________________________________________________________________________
+
+---
+
 ## Remove duplicate
+
 ```
-using System;				
+using System;			
 public class Program
 {
 	public static void Main()
@@ -74,16 +86,18 @@ public class Program
 		foreach(var value in key){
 			if(result.IndexOf(value) == -1){
 				result += value;
-			}			
+			}		
 		}
 		Console.WriteLine(result);
 	}
 }
 ```
+
 ## Count occurance
+
 ```
 using System;
-					
+				
 public class Program
 {
 	public static void Main()
@@ -96,20 +110,21 @@ public class Program
 	}
 }
 ```
+
 ```
 using System;
 using System.Collections.Generic;
 using System.Linq;
-					
+				
 public class Program
 {
 	public static void Main()
 	{
 		List<int> numbers = new List<int>{1,3,3,2,1};
-		
+	
 		var occurances = numbers.GroupBy(x=>x)
 			.Select(g => new{Number = g.Key, Count= g.Count()});
-		
+	
 		foreach(var occ in occurances)
 		{
 			Console.WriteLine($"{occ.Number}={occ.Count}");
@@ -117,10 +132,12 @@ public class Program
 	}
 }
 ```
+
 ## Sum of digit
+
 ```
 using System;
-				
+			
 public class Program
 {
 	public static void Main()
@@ -130,16 +147,18 @@ public class Program
         while (number > 0)
         {
             sum = sum+ number % 10;	 
-            number =number/10;     
+            number =number/10;   
         }
         Console.WriteLine($"Sum of digits: {sum}");
 	}
 }
 ```
+
 ## Reverse digit
+
 ```
 using System;
-				
+			
 public class Program
 {
 	public static void Main()
@@ -157,19 +176,25 @@ public class Program
 	}
 }
 ```
+
 ## Factorial
+
 ```
 if n = 0 return 1
 else
 return fact(n-1)*n
 ```
+
 ## Fibonacci
+
 ```
 if n <= 1 return
 else
 return fib(n-1) + fib(n-1)
 ```
-##  Using string.Join
+
+## Using string.Join
+
 ```
 using System;
 using System.Collections.Generic;
@@ -186,10 +211,12 @@ class Program
 }
 
 ```
+
 ## Reverse String
+
 ```
 using System;
-					
+				
 public class Program
 {
 	public static void Main()
@@ -202,6 +229,33 @@ public class Program
       		charArray[j] = str[i]; 
   		} 
   		Console.WriteLine(charArray); 
+	}
+}
+```
+
+# Move zero at Last
+
+```
+using System;
+			
+public class Program
+{
+	public static void Main()
+	{
+	int[] A = { 5, 6, 0, 4, 6, 0, 9, 0, 8 }; 
+        int n = A.Length; 
+        int j = 0; 
+        for (int i = 0; i < n; i++) { 
+            if (A[i] != 0) { 
+                int temp = A[j]; 
+                A[j] = A[i]; 
+                A[i] = temp; 
+                j++; 
+            } 
+        } 
+        for (int i = 0; i < n; i++) { 
+            Console.WriteLine(A[i]); 
+        } 
 	}
 }
 ```
