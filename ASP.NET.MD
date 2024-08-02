@@ -144,9 +144,32 @@ Provides Interface without exposing implementation
 
 Helps create abstraction
 
-
 ## What is the difference between const and readonly in C#?
 
 `const`: Can't be changed anywhere.
 
 `readonly`: This value can only be changed in the constructor. Can't be changed in normal functions.
+
+# FOR AND FOREACH
+
+The foreach statement is used to iterate through the collection to get the information that you want, but can not be used to add or remove items from the source collection to avoid unpredictable side effects. If you need to add or remove items from the source collection, use a [for](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2008/ch45axte(v=vs.90)) loop.
+
+If you are iterating through a collection of items, and do not care about the index values then foreach is more convenient, easier to write and safer: you can't get the number of items wrong.
+
+If you need to process every second item in a collection for example, or process them ion the reverse order, then a for loop is the only practical way.
+
+# EXTENSION METHODS
+
+Extension method allow us to seemingly add methods to an existing type without modifying this type's source code.
+
+They are static method, but they're called as if they were instance methods on the extended type.
+
+```
+namespace Polymorphism.Extensions
+{
+	public static class StringExtensions
+	{
+		public static int CountLines(this string input)=> input.Split(Environment.NewLine).Length;
+	}
+}
+```
