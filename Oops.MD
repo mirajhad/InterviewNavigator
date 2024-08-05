@@ -129,3 +129,25 @@ Unmanaged code is when the code doesn’t run on CLR, it is an unmanaged code th
 # Difference between the Equality Operator (==) and Equals() Method in C#
 
 # What is Boxing and Unboxing in C#
+
+# OUT AND REF
+
+Declaring an out method is useful when you want a method to return multiple values. A method that uses an out parameter can still return a value. A method can have more than one out parameter.
+
+The out keyword causes arguments to be passed by reference. This is similar to the ref keyword, except that ref requires that the variable be initialized before being passed. To use an out parameter, both the method definition and the calling method must explicitly use the out keyword.
+
+Although variables passed as an out arguments need not be initialized prior to being passed, the calling method is required to assign a value before the method returns.
+
+# IMPLICITLY AND EXPLICITLY VARIABLE
+
+**implicitly**
+
+var word = "ABC";
+
+var num = 5;
+
+**explicitly**
+
+string word ="ABC";
+
+int num =5;
