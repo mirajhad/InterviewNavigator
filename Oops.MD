@@ -151,3 +151,11 @@ var num = 5;
 string word ="ABC";
 
 int num =5;
+
+# DATA HIDING
+
+making the members of a class non-public
+
+# ACCESS MODIFIER
+
+Protected:- members can be used in the derived classess, but they can't be used outside.
