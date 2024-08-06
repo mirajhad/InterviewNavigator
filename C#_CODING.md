@@ -59,7 +59,7 @@ public class HelloWorld
 ```
 using System;
 using System.Linq;
-				
+			
 public class Program
 {
 	public static void Main()
@@ -76,7 +76,7 @@ public class Program
 ## Remove duplicate
 
 ```
-using System;			
+using System;		
 public class Program
 {
 	public static void Main()
@@ -86,9 +86,42 @@ public class Program
 		foreach(var value in key){
 			if(result.IndexOf(value) == -1){
 				result += value;
-			}		
+			}	
 		}
 		Console.WriteLine(result);
+	}
+}
+```
+
+## Count Occurance using Dictionary
+
+```
+using System;	
+using System.Collections.Generic;
+public class Program
+{
+	public static void Main()
+	{
+
+		string input = "example string";
+        	Dictionary<char, int> charCount = new Dictionary<char, int>();
+
+        foreach (char c in input)
+        {
+            if (charCount.ContainsKey(c))
+            {
+                charCount[c]++;
+            }
+            else
+            {
+                charCount[c] = 1;
+            }
+        }
+
+        foreach (var item in charCount)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value}");
+        }
 	}
 }
 ```
@@ -97,7 +130,7 @@ public class Program
 
 ```
 using System;
-				
+			
 public class Program
 {
 	public static void Main()
@@ -115,16 +148,16 @@ public class Program
 using System;
 using System.Collections.Generic;
 using System.Linq;
-				
+			
 public class Program
 {
 	public static void Main()
 	{
 		List<int> numbers = new List<int>{1,3,3,2,1};
-	
+
 		var occurances = numbers.GroupBy(x=>x)
 			.Select(g => new{Number = g.Key, Count= g.Count()});
-	
+
 		foreach(var occ in occurances)
 		{
 			Console.WriteLine($"{occ.Number}={occ.Count}");
@@ -137,7 +170,7 @@ public class Program
 
 ```
 using System;
-			
+		
 public class Program
 {
 	public static void Main()
@@ -158,7 +191,7 @@ public class Program
 
 ```
 using System;
-			
+		
 public class Program
 {
 	public static void Main()
@@ -216,7 +249,7 @@ class Program
 
 ```
 using System;
-				
+			
 public class Program
 {
 	public static void Main()
@@ -237,7 +270,7 @@ public class Program
 
 ```
 using System;
-			
+		
 public class Program
 {
 	public static void Main()
