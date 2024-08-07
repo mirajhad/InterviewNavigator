@@ -1,0 +1,21 @@
+# Infosys - react js
+
+# TCS - React js
+
+# Xoriant - fresher
+
+# HashedIn - fresher
+
+# Eurofins
+
+# Diatoz
+
+# Hach
+
+# Columbia Sportswear
+
+# Siemens
+
+# societe generale
+
+# NCR Corporation
