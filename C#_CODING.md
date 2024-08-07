@@ -59,7 +59,7 @@ public class HelloWorld
 ```
 using System;
 using System.Linq;
-			
+		
 public class Program
 {
 	public static void Main()
@@ -76,7 +76,7 @@ public class Program
 ## Remove duplicate
 
 ```
-using System;		
+using System;	
 public class Program
 {
 	public static void Main()
@@ -86,7 +86,7 @@ public class Program
 		foreach(var value in key){
 			if(result.IndexOf(value) == -1){
 				result += value;
-			}	
+			}
 		}
 		Console.WriteLine(result);
 	}
@@ -96,7 +96,7 @@ public class Program
 ## Count Occurance using Dictionary
 
 ```
-using System;	
+using System;
 using System.Collections.Generic;
 public class Program
 {
@@ -130,7 +130,7 @@ public class Program
 
 ```
 using System;
-			
+		
 public class Program
 {
 	public static void Main()
@@ -148,7 +148,7 @@ public class Program
 using System;
 using System.Collections.Generic;
 using System.Linq;
-			
+		
 public class Program
 {
 	public static void Main()
@@ -170,7 +170,7 @@ public class Program
 
 ```
 using System;
-		
+	
 public class Program
 {
 	public static void Main()
@@ -191,7 +191,7 @@ public class Program
 
 ```
 using System;
-		
+	
 public class Program
 {
 	public static void Main()
@@ -249,7 +249,7 @@ class Program
 
 ```
 using System;
-			
+		
 public class Program
 {
 	public static void Main()
@@ -270,7 +270,7 @@ public class Program
 
 ```
 using System;
-		
+	
 public class Program
 {
 	public static void Main()
@@ -289,6 +289,23 @@ public class Program
         for (int i = 0; i < n; i++) { 
             Console.WriteLine(A[i]); 
         } 
+	}
+}
+```
+
+# Check Big Letter
+
+```
+using System;
+using System.Linq;
+				
+public class Program
+{
+	public static void Main()
+	{
+		string[] st= ["fox","ox","DOG"];
+		var data = st.Any(x=>x.All(le => char.IsUpper(le)));
+		Console.WriteLine(data);
 	}
 }
 ```
