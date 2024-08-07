@@ -1,0 +1,23 @@
+# Promise
+
+![1723050102103](image/Image/1723050102103.png)
+
+# API DESIGN
+
+![1723050157531](image/Image/1723050157531.png)
+
+# FlexBox
+
+![1723050196954](image/Image/1723050196954.png)
+
+# Javascript
+
+![1723050216978](image/Image/1723050216978.png)
+
+# Improve API
+
+![1723050234230](image/Image/1723050234230.png)
+
+# GIT REBASE
+
+![1723050687848](image/Image/1723050687848.png)
