@@ -188,8 +188,6 @@ You are creating a new application or making significant changes to an existing.
 You want to match route parameter names with an actual parameter of the method(action), this will make the route parameter more descriptive and omit the weird error where the route ID would not match and that usually happens because we didn't configure routing correctly and we were using asp.net default route.
 But the reasons why many developers recommend the Attribute Routes is because it allows you quite a bit more flexibility and places the routes next to the actions that will actually use them. You can switch from option to another at any time is not difficult
 
-
-
 Attribute Routing
 Problems in Conventional Routing
 
@@ -235,3 +233,9 @@ public ActionResult Methodname( )
 3. Routes are very clearly understandable for the developers.
 4. Should be enabled using:  routes.MapMvcAttributesRoutes( );
 5. Also supports parameters & constraints.
+
+# What is the use of @Html.AntiForgeryToken()?
+
+Let's assume you have a register functionality in your web app. You have an AccountController (example.com/account/register) where you expect people to submit their info. Normally before someone posts the registration information needs to visit the actual (example.com/account/register) than submit the form.
+
+Let say I am a bad guy and I want to flood your server with junk info all I need to do is just keep posting directly to (example.com/account/register) without visiting your site. So in order to stop me you implement AntiForgeryToken so you can make it sure I visited the page before I submitted the registration information.
