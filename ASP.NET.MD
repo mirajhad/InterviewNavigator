@@ -173,3 +173,65 @@ namespace Polymorphism.Extensions
 	}
 }
 ```
+
+# CONVENTIONAL AND ATTRIBUTE ROUTING
+
+Following are some suggestions on when to use each one. Consider choosing traditional routes when:
+
+You want centralized configuration of all your routes.
+You use custom constraint objects.
+You have an existing working application you don't want to change
+Consider choosing attribute routes when:
+
+You want to keep your routes together with your action's code
+You are creating a new application or making significant changes to an existing.
+You want to match route parameter names with an actual parameter of the method(action), this will make the route parameter more descriptive and omit the weird error where the route ID would not match and that usually happens because we didn't configure routing correctly and we were using asp.net default route.
+But the reasons why many developers recommend the Attribute Routes is because it allows you quite a bit more flexibility and places the routes next to the actions that will actually use them. You can switch from option to another at any time is not difficult
+
+
+
+Attribute Routing
+Problems in Conventional Routing
+
+Very difficult to understand for the developers, which route is for which action methods.
+
+Very difficult to avoid conflicts among the routes [some times, we can't apply constraints].
+
+Overall, some routes for multiple action methods; some routes for specific action methods; Overall, it looks cumbersome.
+
+RouteConfig.cs
+
+protected static void RegisterRoutes( RouteCollection routes)
+{
+   routes.MapRoute("name", "url", defaults, constraints);
+   routes.MapRoute("name", "url", defaults, constraints);
+   routes.MapRoute("name", "url", defaults, constraints);
+   …
+}
+
+Types of URL Routing
+Conventional Routing
+
+It is the traditional way of routing.  routes.MapRoute( "name", "url", { defaults } )
+
+Applicable for a specific / multiple action methods.
+
+Routes will be cumbersome.
+
+Enabled by default.
+
+Supports parameters & constraints.
+
+Attribute Routing
+
+1. New and preferred way of routing:
+
+["url"]
+public ActionResult Methodname( )
+{
+}
+2. Applicable for specific action method. Each action method must have "Route" defined.
+
+3. Routes are very clearly understandable for the developers.
+4. Should be enabled using:  routes.MapMvcAttributesRoutes( );
+5. Also supports parameters & constraints.
