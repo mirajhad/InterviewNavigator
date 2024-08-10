@@ -240,6 +240,19 @@ Let's assume you have a register functionality in your web app. You have an Acco
 
 Let say I am a bad guy and I want to flood your server with junk info all I need to do is just keep posting directly to (example.com/account/register) without visiting your site. So in order to stop me you implement AntiForgeryToken so you can make it sure I visited the page before I submitted the registration information.
 
+CSRF / XSRF (Cross Site Request Forgery) is a process of sending a request to actual website, from a page present in attacker website, based on the logged-in session of actual website user.
+
+
+#### How to Implement CSRF Security?
+
+**View**
+
+`@Html.AntiForgeryToken( )`
+
+**Controller**
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="pun">[</span><span class="typ">ValidateAntiForgeryToken</span><span class="pun">]</span></p></li><li class="L1" data-node-id="20240810195432-c52y22a"><p><span class="kwd">public</span><span class="pln"></span><span class="typ">ActionResult</span><span class="pln"></span><span class="typ">Method</span><span class="pun">(</span><span class="pln"></span><span class="pun">)</span></p></li><li class="L2"><p><span class="pun">{</span></p></li><li class="L3" data-node-id="20240810195432-p1f8zmf"><p><span class="pun">}</span></p></li></ol></pre>
+
 # Performance Optimization
 
 Bundling and Minification
@@ -256,3 +269,42 @@ StyleBundle: Contains css fles (.css files).
 Microsoft.AspNet.Web.Optimization
 
 This NuGet Package needs to be installed in the project, to use bundling concept.
+
+# Strongly Typed Views
+
+View that is associated to a specific model class is called as "Strongly Typed View".
+
+Strongly typed views have to specify the model class name with @model directive at the top of the view.
+
+Strongly Typed Views can receive model objects from the controller.
+
+To receive model collections from the controller: `@model List<modelClassNameHere>`
+
+# HTML Helpers
+
+* Binds HTML elements to Model Properties.
+* Pre-defined methods that execute on server and generate (render) a specific html tag at run time.
+* @Html is an object of HtmlHelper class.
+
+**Server code:**
+
+`@Html.TextBoxFor (model => model.EmpName)`
+
+**Browser (Client) - auto generated**
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="tag"><input</span><span class="pln"></span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"></span><span class="atn">name</span><span class="pun">=</span><span class="atv">"EmpName"</span><span class="tag">></span></p></li></ol></pre>
+
+#### List of HTML Helpers
+
+1. **Html.ActionLink:**      Hyperlink
+2. **Html.TextBoxFor: **    Textbox
+3. **Html.TextAreaFor:**   TextArea
+4. **Html.CheckBoxFor: **   CheckBox
+5. **Html.RadioButtonFor: **  RadioButton
+6. **Html.DropDownListFor:**    Dropdown
+7. **Html.ListBoxFor:**    Multi-Select ListBox
+8. **Html.HiddenFor: **   Hidden Field
+9. **Html.PasswordFor: **  Password TextBo
+10. **Html.DisplayFor: **   Plain text
+11. **Html.LabelFor: **   Label
+12. **Html.EditorFor: **  TextBox /    TextArea / Numeric TextBox / Date TextBox etc.
