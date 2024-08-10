@@ -239,3 +239,20 @@ public ActionResult Methodname( )
 Let's assume you have a register functionality in your web app. You have an AccountController (example.com/account/register) where you expect people to submit their info. Normally before someone posts the registration information needs to visit the actual (example.com/account/register) than submit the form.
 
 Let say I am a bad guy and I want to flood your server with junk info all I need to do is just keep posting directly to (example.com/account/register) without visiting your site. So in order to stop me you implement AntiForgeryToken so you can make it sure I visited the page before I submitted the registration information.
+
+# Performance Optimization
+
+Bundling and Minification
+Used to load multiple css files / js files with a single request.
+
+Also minifies (compresses) the css / js files.
+
+Types of Bundles:
+
+ScriptBundle: Contains javascript files (.js files).
+
+StyleBundle: Contains css fles (.css files).
+
+Microsoft.AspNet.Web.Optimization
+
+This NuGet Package needs to be installed in the project, to use bundling concept.
