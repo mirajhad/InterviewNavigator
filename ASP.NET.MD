@@ -242,7 +242,6 @@ Let say I am a bad guy and I want to flood your server with junk info all I need
 
 CSRF / XSRF (Cross Site Request Forgery) is a process of sending a request to actual website, from a page present in attacker website, based on the logged-in session of actual website user.
 
-
 #### How to Implement CSRF Security?
 
 **View**
@@ -308,3 +307,13 @@ To receive model collections from the controller: `@model List<modelClassNameHer
 10. **Html.DisplayFor: **   Plain text
 11. **Html.LabelFor: **   Label
 12. **Html.EditorFor: **  TextBox /    TextArea / Numeric TextBox / Date TextBox etc.
+
+# Types of ActionResult
+
+1. ContentResult: Represents any content with specific content-type.
+2. ViewResult: Represents result of a view.
+3. FileResult: Represents content of a file.
+4. JsonResult: Represents json object / json array.
+5. RedirectResult: Represents redirection to other website (HTTP 302).
+6. RedirectToRouteResult: Represents redirection to a specific action method (HTTP 302).
+7. PartialViewResult: Represents the result of partial view.
