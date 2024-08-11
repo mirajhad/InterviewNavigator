@@ -119,11 +119,6 @@ By default, all the struct members are public but class members are by default p
 
 As a structure is a value type, we can't assign null to a struct object, but it is not the case for a class.
 
-# What is a managed and unmanaged code
-
-Managed code lets you run the code on a managed CLR runtime environment in the .NET framework.
-Unmanaged code is when the code doesn’t run on CLR, it is an unmanaged code that works outside the .NET framework.
-
 # What is the difference between constant and readonly in C#
 
 # Difference between the Equality Operator (==) and Equals() Method in C#
