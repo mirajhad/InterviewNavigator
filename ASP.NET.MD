@@ -316,4 +316,7 @@ To receive model collections from the controller: `@model List<modelClassNameHer
 4. JsonResult: Represents json object / json array.
 5. RedirectResult: Represents redirection to other website (HTTP 302).
 6. RedirectToRouteResult: Represents redirection to a specific action method (HTTP 302).
-7. PartialViewResult: Represents the result of partial view.
+7. PartialViewResult: Represents the result of partial view.# ActionFilters
+   # ActionFilter
+
+   # Filters

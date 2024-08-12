@@ -52,11 +52,35 @@ Destructor is a special method of the class, which is used to close un-managed r
 
 # Base Keyword
 
-
 The `base` keyword is used to refer to the base class when chaining constructors or when you want to access a member (method, property, anything) in the base class that has been overridden or hidden in the current class. For example,
 
-
 ```
+using System;
+
+public class Program
+{
+    class A {
+        protected virtual void Foo() {
+            Console.WriteLine("I'm A");
+        }
+    }
+
+    class B : A {
+        protected override void Foo() {
+            Console.WriteLine("I'm B");
+        }
+
+        public void Bar() {
+            Foo();       // Calls Foo() from class B
+            base.Foo();  // Calls Foo() from class A
+        }
+    }
+
+    public static void Main(string[] args)
+    {
+       new B().Bar();
+    }
+}
 
 ```
 
