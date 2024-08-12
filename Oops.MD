@@ -48,34 +48,49 @@ SomethingHappened("bar");
 
 # **METHOD OVERLOADING AND METHOD OVERRIDING**
 
+CT- Method Overloading
+
+RT - Method Overriding
+
 Method overloading deals with the notion of having two or more methods in the same class with the same name but different arguments.
 
 void foo(int a)
 void foo(int a, float b)
 
 ```
-public class Example
+using System;
+
+
+public class Program
 {
+    // Method overload for a single integer parameter
     public void Print(int a)
     {
         Console.WriteLine($"Integer: {a}");
-    }    public void Print(int a, float b)
+    }
+
+    // Method overload for an integer and a float parameter
+    public void Print(int a, float b)
     {
         Console.WriteLine($"Integer: {a}, Float: {b}");
-    }    public void Print(string message)
+    }
+
+    // Method overload for a single string parameter
+    public void Print(string message)
     {
         Console.WriteLine($"Message: {message}");
     }
-}class Program
-{
-    static void Main()
+
+    public static void Main(string[] args)
     {
-        Example ex = new Example();
+        Program ex = new Program();
+
         ex.Print(5);                // Calls Print(int a)
         ex.Print(5, 3.14f);         // Calls Print(int a, float b)
         ex.Print("Hello World!");   // Calls Print(string message)
     }
 }
+
 ```
 
 Method overriding means having two methods with the same arguments, but different implementations. One of them would exist in the parent class, while another will be in the derived, or child class.
