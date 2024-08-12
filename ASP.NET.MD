@@ -316,7 +316,33 @@ To receive model collections from the controller: `@model List<modelClassNameHer
 4. JsonResult: Represents json object / json array.
 5. RedirectResult: Represents redirection to other website (HTTP 302).
 6. RedirectToRouteResult: Represents redirection to a specific action method (HTTP 302).
-7. PartialViewResult: Represents the result of partial view.# ActionFilters
-   # ActionFilter
+7. PartialViewResult: Represents the result of partial view.# ActionFilters# Filter
 
-   # Filters
+# Filters
+
+Filters Execute at a specific situation, while executing an action method.
+
+**Authentication Filters**
+
+* Executes first, before any other filter, to check whether the user is a valid user or not.
+* Implemented using IAuthenticationFilter
+
+**Authorization Filters**
+
+* Executes first, before any other filter, to check whether the user has permission to execute the action method or not.
+* Implemented using IAuthorizationFilter
+
+**Action Filters**
+
+* Executes before and after of action method execution. You can modify the ViewBag, before sending it result.
+* Implemented using IActionFilter
+
+**Result Filters**
+
+* Executes before and after of result execution. You can modify the result.
+* Implemented using IResultFilter
+
+**Exception Filters**
+
+* Executes when an exception is raised while executing the action method or result. You can store exception log.
+* Implemented using IExceptionFilter
