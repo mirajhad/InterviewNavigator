@@ -346,3 +346,19 @@ Filters Execute at a specific situation, while executing an action method.
 
 * Executes when an exception is raised while executing the action method or result. You can store exception log.
 * Implemented using IExceptionFilter
+
+# Built-in Filters
+
+**Authorization Filters**
+
+1. **[ChildActionOnly] ** : Accepts only child requests (not direct requests).
+2. **[ValidateAntiForgeryToken] ** : Accepts only the requests from same domain. Useful for CSRF security
+3. **[Authorize] ** : Accepts only if the user has logged-in.
+
+**Action Filters**
+
+1. **[ActionName]** : Defines name of action, which is different than method name.
+2. **[NonAction]** : Defines that the method is not an action method.
+3. **[HttpGet] ** : Accepts only GET request.
+4. **[HttpPost] ** : Accepts only POST request.
+5. **[OutputCache] ** : Caches result of action method & delivers the same for subsequent requests.
