@@ -64,17 +64,15 @@ It is useful for optimizing performance by preventing unnecessary renders.
 
 ---
 
-What is useMemo ?
+# What is useMemo ?
 
-useMemo is used to memoize the value. means it caches the result of a function and returns the cached value until one of the dependencies has changed.
+This function returns memoized return value of the component.
 
-It is used to optimize the extensive computations. so that they are not recalculated on every render.
+it renders the component and returns the result of component & also memoizes (stores) its result.
 
-const memoizedValue = useMemo(()=>{
+it doesn't re-render the component; instead, it returns the memoized result of component.
 
- return computeExtensiveValue(a,b)
-
-},[a,b]);
+it renders the component and returns the result of component & also memoizes (stores) its result (same as first render).
 
 ---
 
