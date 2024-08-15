@@ -63,6 +63,36 @@ it doesn't re-render the component; instead, it returns the memoized result of c
 
 it renders the component and returns the result of component & also memoizes (stores) its result (same as first render).
 
+# useMemo
+
+
+This hook returns memoized return value of the function to prevent repeated execution of the function.
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="kwd">let</span><span class="pln"> myResult </span><span class="pun">=</span><span class="pln"></span><span class="pun">((</span><span class="pln"></span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span></p></li><li class="L1" data-node-id="20240815194135-2ip04dy"><p><span class="pun">{</span></p></li><li class="L2"><p><span class="kwd">return</span><span class="pln"> someResult</span><span class="pun">;</span></p></li><li class="L3" data-node-id="20240815194135-9z6i3t2"><p><span class="pun">})</span><span class="pln"></span><span class="pun">(</span><span class="pln"></span><span class="pun">);</span></p></li></ol></pre>
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="kwd">let</span><span class="pln"> myResult </span><span class="pun">=</span><span class="pln"> useMemo</span><span class="pun">(</span></p></li><li class="L1" data-node-id="20240815194135-6oio3cm"><p><span class="pun">(</span><span class="pln"></span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span><span class="pln"></span><span class="pun">{</span><span class="pln"></span><span class="kwd">return</span><span class="pln"> someResult</span><span class="pun">;</span><span class="pln"></span><span class="pun">},</span></p></li><li class="L2"><p><span class="pun">[</span><span class="pln"> dependencies </span><span class="pun">]</span></p></li><li class="L3" data-node-id="20240815194135-hzb0gb3"><p><span class="pun">);</span></p></li></ol></pre>
+
+
+When you invoke useMemo with a function inside the component:
+
+**First render**
+
+it executes the function and returns the same returned value of the function & also memoizes (stores) the return value.
+
+**Subsequent renders with same values of dependencies**
+
+it doesn’t executes the function; but returns the same memoized return value;
+
+**Subsequent renders with some changes in values of dependencies.**
+
+it executes the function and returns the returned value of the function & also memoizes (stores) the same return value (just like first render).
+
+When to use useMemo
+
+When your function does some expensive task (heavier code with complex calculations) and is being executed on each render.
+
+**Note:** Avoid using useMemo when your function is smaller.
+
 # useCallback
 
 This hook returns memoized function to prevent unnecessary re-renders of child components with React.memo().
@@ -111,5 +141,26 @@ let myRef = useRef(initialValue)
 myRef.current.SomeDomMethod())
 ```
 
+When to use useRef?
+
+When you want to invoke specific DOM methods.
 
 What are controlled and uncontrolled components in Reactjs
+
+# useReducer
+
+This hook combines 'state' + 'method to manipulate the state'.
+
+Alternative to useState.
+
+**//useReducer**
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="kwd">let</span><span class="pln"></span><span class="pun">[</span><span class="pln"> currentState</span><span class="pun">,</span><span class="pln"> dispatch </span><span class="pun">]</span><span class="pln"></span><span class="pun">=</span><span class="pln"> useReducer</span><span class="pun">(</span><span class="pln">reducer</span><span class="pun">,</span><span class="pln"> initialState</span><span class="pun">);</span></p></li></ol></pre>
+
+**//dispatch**
+
+`dispatch( { type: "operation", payload: someData } );`
+
+**//reducer**
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="kwd">let</span><span class="pln"> reducer </span><span class="pun">=</span><span class="pln"></span><span class="pun">(</span><span class="pln"> state</span><span class="pun">,</span><span class="pln"> action </span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span><span class="pln"></span><span class="pun">{</span></p></li><li class="L1" data-node-id="20240815194239-ymermux"><p><span class="kwd">switch</span><span class="pln"></span><span class="pun">(</span><span class="pln">action</span><span class="pun">.</span><span class="pln">type</span><span class="pun">)</span></p></li><li class="L2"><p><span class="pun">{</span></p></li><li class="L3" data-node-id="20240815194239-fytxjxu"><p><span class="kwd">case</span><span class="pln"></span><span class="str">"operation1"</span><span class="pun">;</span></p></li><li class="L4"><p><span class="kwd">return</span><span class="pln"> updatedState1</span><span class="pun">;</span></p></li><li class="L5" data-node-id="20240815194239-tgyv4j7"><p><span class="kwd">case</span><span class="pln"></span><span class="str">"operation2"</span><span class="pun">;</span></p></li><li class="L6"><p><span class="kwd">return</span><span class="pln"> updatedState2</span><span class="pun">;</span></p></li><li class="L7" data-node-id="20240815194239-4y0o8bz"><p><span class="pun">}</span></p></li><li class="L8"><p><span class="pun">};</span></p></li></ol></pre>
