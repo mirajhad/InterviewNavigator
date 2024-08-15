@@ -14,11 +14,10 @@
 [(ngModel)]=”value”: Two-way data binding allows to have the data flow both ways. For example, in the below code snippet, both the email DOM input and component email property are in sync
 
 ```
- <input type="email" [(ngModel)]="user.email">    
+ <input type="email" [(ngModel)]="user.email">  
 ```
 
 # Async Pipe
-
 
 # **BehaviorSubject**
 
@@ -27,3 +26,15 @@ A Subject or Observable doesn't have a current value. When a value is emitted, i
 If you want to have a current value, use BehaviorSubject which is designed for exactly that purpose. BehaviorSubject keeps the last emitted value and emits it immediately to new subscribers.
 
 It also has a method getValue() to get the current value.
+
+# Observable and Observer
+
+Pattern matching of message passing from publisher to subscriber
+
+1. **Observable** is like a youtube channel of someone else. (( It uploads new videos(data) from time to time, **so it is a data source** for you))
+2. Your youtube account is an **Observer**
+3. Your youtube account **(Observer)** can only get notifications about whether someone else's youtube channel **(Observable)** has uploaded a new video **(has new data)** or made a livestream **(new event)** only if you have **subscribed** to that channel
+
+**(Observer subscribes Observable to listen for new data/any event)**
+
+where observable is a data source, subscribe is like a method/function , Observer is generally on your side
