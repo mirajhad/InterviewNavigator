@@ -65,13 +65,11 @@ it renders the component and returns the result of component & also memoizes (st
 
 # useCallback
 
-
 This hook returns memoized function to prevent unnecessary re-renders of child components with React.memo().
 
 <pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="kwd">let</span><span class="pln"> myFunction </span><span class="pun">=</span><span class="pln"></span><span class="pun">(</span><span class="pln"></span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span></p></li><li class="L1" data-node-id="20240815123823-86jl6sc"><p><span class="pun">{</span></p></li><li class="L2"><p><span class="pun">};</span></p></li></ol></pre>
 
 <pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="kwd">let</span><span class="pln"> myFunction </span><span class="pun">=</span><span class="pln"> useCallback</span><span class="pun">(</span></p></li><li class="L1" data-node-id="20240815123823-8f9gz67"><p><span class="pun">(</span><span class="pln"></span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span><span class="pln"></span><span class="pun">{</span><span class="pln"></span><span class="pun">},</span></p></li><li class="L2"><p><span class="pun">[</span><span class="pln"> dependencies </span><span class="pun">]</span></p></li><li class="L3" data-node-id="20240815123823-krd0l55"><p><span class="pun">);</span></p></li></ol></pre>
-
 
 **When you invoke useCallback with a function inside the component:**
 
@@ -99,6 +97,19 @@ Ex: useEffect(…, [ callback ] );
 
 **Note: **Avoid using useCallback when your component is smaller.
 
----
+# useRef
+
+This hook return reference to DOM element object of an element
+
+we can call DOM method using this reference
+
+```
+let myRef = useRef(initialValue)
+
+<element ref={myRef}}>
+
+myRef.current.SomeDomMethod())
+```
+
 
 What are controlled and uncontrolled components in Reactjs
