@@ -38,3 +38,32 @@ Pattern matching of message passing from publisher to subscriber
 **(Observer subscribes Observable to listen for new data/any event)**
 
 where observable is a data source, subscribe is like a method/function , Observer is generally on your side
+
+# @Input Binding
+
+An Input Property is a settable property, annoted with an @Input() decorator.
+
+```
+class ChildComponent
+{
+	@Input("someInputName"): propertyName: dataType
+}
+
+<app-child [someInputName]="valueOfParent">
+</app-child>
+
+```
+
+# @Output Binding
+
+An Output Property is an observable property, annoted with an @Output() decorator
+
+```
+classComponent
+{
+	@Output("someOutputName") : eventName: EventEmitter = new EventEmitter();
+}
+
+<app-child (someOutputName)="methodName()">
+</app-child>
+```
