@@ -1,4 +1,4 @@
-In recent reactjs coding round, this was asked. Can you solve this ?
+# In recent reactjs coding round, this was asked. Can you solve this ?
 
 Implement a todo list component in React. User can add todos, mark todos as completed and filter todos
 
@@ -10,18 +10,7 @@ Implement a todo list component in React. User can add todos, mark todos as comp
 
 ---
 
-How do you measure the performance of a webapplication ?
-
----
-
-In recent reactjs machine coding round, this was asked. Can you solve this ?
-
-1. Create a react component that displays a timer with initial value 0.
-2. There should be two buttons one to start/stop, and other to reset timer.
-3. Clicking on start will start timer from 0 and increase timer value by 1 for every second and button text should change to "stop".
-4. Clicking on stop will pause the timer and change button text to "start".
-5. Now click on start then timer should continue from paused value.
-6. Clicking on reset will reset the timer to initial value 0.
+# How do you measure the performance of a webapplication ?
 
 ---
 
@@ -48,7 +37,7 @@ In recent reactjs interview, this machine coding problem was asked. Can you solv
 
 ---
 
-What is Lazy loading in React ?
+# What is Lazy loading in React ?
 
 Lazy loading is a technique used in React to improve performance and reduce the initial load time of web applications. It allows you to split your code into smaller chunks, and load them on demand only when they are needed. This can significantly reduce the amount of JavaScript that needs to be loaded initially, which can improve the page load speed and user experience.
 
@@ -64,7 +53,7 @@ It is useful for optimizing performance by preventing unnecessary renders.
 
 ---
 
-# What is useMemo ?
+# React Memo
 
 This function returns memoized return value of the component.
 
@@ -73,6 +62,42 @@ it renders the component and returns the result of component & also memoizes (st
 it doesn't re-render the component; instead, it returns the memoized result of component.
 
 it renders the component and returns the result of component & also memoizes (stores) its result (same as first render).
+
+# useCallback
+
+
+This hook returns memoized function to prevent unnecessary re-renders of child components with React.memo().
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="kwd">let</span><span class="pln"> myFunction </span><span class="pun">=</span><span class="pln"></span><span class="pun">(</span><span class="pln"></span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span></p></li><li class="L1" data-node-id="20240815123823-86jl6sc"><p><span class="pun">{</span></p></li><li class="L2"><p><span class="pun">};</span></p></li></ol></pre>
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="kwd">let</span><span class="pln"> myFunction </span><span class="pun">=</span><span class="pln"> useCallback</span><span class="pun">(</span></p></li><li class="L1" data-node-id="20240815123823-8f9gz67"><p><span class="pun">(</span><span class="pln"></span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span><span class="pln"></span><span class="pun">{</span><span class="pln"></span><span class="pun">},</span></p></li><li class="L2"><p><span class="pun">[</span><span class="pln"> dependencies </span><span class="pun">]</span></p></li><li class="L3" data-node-id="20240815123823-krd0l55"><p><span class="pun">);</span></p></li></ol></pre>
+
+
+**When you invoke useCallback with a function inside the component:**
+
+**First render**
+
+it creates a function and returns the same function & also memoizes (stores) the same function.
+
+**Subsequent renders with same values of dependencies**
+
+it creates a function but returns the same memoized function;
+
+**Subsequent renders with some changes in values of dependencies.**
+
+it creates a function and returns the same function & also memoizes (stores) the same function.
+
+# When to use useCallback
+
+When the child component is invoked with React.memo() and also the parent component is passing a callback function to the child component.
+
+or
+
+When your useEffect hook's dependencies array has a callback function.
+
+Ex: useEffect(…, [ callback ] );
+
+**Note: **Avoid using useCallback when your component is smaller.
 
 ---
 
