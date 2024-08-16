@@ -417,3 +417,52 @@ The ASP.NET Core shared framework (Microsoft.AspNetCore.App) contains assemblies
 Middleware is a component that is assembled into the application pipeline to handle requests and responses.
 
 Middleware are chained one-after-other and execute in the same sequence how they're added.
+
+Middleware can be a request delegate (anonymous method or lambda expression) [or] a class.
+
+
+**app.Run( )**
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="pln">app</span><span class="pun">.</span><span class="typ">Run</span><span class="pun">(</span><span class="pln">async </span><span class="pun">(</span><span class="typ">HttpContext</span><span class="pln"> context</span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span></p></li><li class="L1" data-node-id="20240816162155-p8fwuzv"><p><span class="pun">{</span></p></li><li class="L2"><p><span class="com">//code</span></p></li><li class="L3" data-node-id="20240816162155-cz1eeik"><p><span class="pun">});</span></p></li></ol></pre>
+
+The extension method called “Run” is used to execute a terminating / short-circuiting middleware that doesn’t forward the request to the next middleware.
+
+
+**app.Use( )**
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="pln">app</span><span class="pun">.</span><span class="typ">Use</span><span class="pun">(</span><span class="pln">async </span><span class="pun">(</span><span class="typ">HttpContext</span><span class="pln"> context</span><span class="pun">,</span><span class="pln"></span><span class="typ">RequestDelegate</span><span class="pln"></span><span class="kwd">next</span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span></p></li><li class="L1" data-node-id="20240816162204-dlayh8d"><p><span class="pun">{</span></p></li><li class="L2"><p><span class="pln"></span><span class="com">//before logic</span></p></li><li class="L3" data-node-id="20240816162204-o61zhd1"><p><span class="pln">  await </span><span class="kwd">next</span><span class="pun">(</span><span class="pln">context</span><span class="pun">);</span></p></li><li class="L4"><p><span class="pln"></span><span class="com">//after logic</span></p></li><li class="L5" data-node-id="20240816162204-peu7e52"><p><span class="pun">});</span></p></li></ol></pre>
+
+The extension method called “Use” is used to execute a non-terminating / short-circuiting middleware that may / may not forward the request to the next middleware.
+
+
+#### Middleware Class
+
+Middleware class is used to separate the middleware logic from a lambda expression to a separate / reusable class.
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="kwd">class</span><span class="pln"></span><span class="typ">MiddlewareClassName</span><span class="pln"></span><span class="pun">:</span><span class="pln"></span><span class="typ">IMiddleware</span></p></li><li class="L1" data-node-id="20240816162226-7pcm3rg"><p><span class="pun">{</span></p></li><li class="L2"><p><span class="pln"></span><span class="kwd">public</span><span class="pln"> async </span><span class="typ">Task</span><span class="pln"></span><span class="typ">InvokeAsync</span><span class="pun">(</span><span class="typ">HttpContext</span><span class="pln"> context</span><span class="pun">,</span><span class="pln"></span><span class="typ">RequestDelegate</span><span class="pln"></span><span class="kwd">next</span><span class="pun">)</span></p></li><li class="L3" data-node-id="20240816162226-e0k0ccv"><p><span class="pln"></span><span class="pun">{</span></p></li><li class="L4"><p><span class="pln"></span><span class="com">//before logic</span></p></li><li class="L5" data-node-id="20240816162226-99u9xl5"><p><span class="pln">    await </span><span class="kwd">next</span><span class="pun">(</span><span class="pln">context</span><span class="pun">);</span></p></li><li class="L6"><p><span class="pln"></span><span class="com">//after logic</span></p></li><li class="L7" data-node-id="20240816162226-gp3g4tr"><p><span class="pln"></span><span class="pun">}</span></p></li><li class="L8"><p><span class="pun">}</span></p></li></ol></pre>
+
+`app.UseMiddleware<MiddlewareClassName>();`
+
+
+#### The Right Order of Middleware
+
+
+1. **app**.**UseExceptionHandler**(**"/Error"**);
+2. **app**.**UseHsts**();
+3. **app**.**UseHttpsRedirection**();
+4. **app**.**UseStaticFiles**();
+5. **app**.**UseRouting**();
+6. **app**.**UseCors**();
+7. **app**.**UseAuthentication**();
+8. **app**.**UseAuthorization**();
+9. **app**.**UseSession**();
+10. **app**.**MapControllers**();
+11. **//add your custom middlewares**
+12. **app**.**Run**();
+
+
+**app.UseWhen( )**
+
+<pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="pln">app</span><span class="pun">.</span><span class="typ">UseWhen</span><span class="pun">(</span></p></li><li class="L1" data-node-id="20240816162333-s46y8rw"><p><span class="pln">  context </span><span class="pun">=></span><span class="pln"></span><span class="pun">{</span><span class="pln"></span><span class="kwd">return</span><span class="pln"></span><span class="kwd">boolean</span><span class="pun">;</span><span class="pln"></span><span class="pun">},</span></p></li><li class="L2"><p><span class="pln">  app </span><span class="pun">=></span></p></li><li class="L3" data-node-id="20240816162333-jkda115"><p><span class="pln"></span><span class="pun">{</span></p></li><li class="L4"><p><span class="pln"></span><span class="com">//add your middlewares</span></p></li><li class="L5" data-node-id="20240816162333-zj23qua"><p><span class="pln"></span><span class="pun">}</span></p></li><li class="L6"><p><span class="pun">);</span></p></li></ol></pre>
+
+The extension method called “UseWhen” is used to execute a branch of middleware only when the specified condition is true.
