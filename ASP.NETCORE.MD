@@ -399,7 +399,6 @@ Filters Execute at a specific situation, while executing an action method.
 
 <pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="kwd">public</span><span class="pln"></span><span class="kwd">class</span><span class="pln"></span><span class="typ">SampleAttribute</span><span class="pln"></span><span class="pun">:</span><span class="pln"></span><span class="typ">ValidationAttribute</span></p></li><li class="L1" data-node-id="20240813131529-uiehjz3"><p><span class="pun">{</span></p></li><li class="L2"><p><span class="pln"></span><span class="kwd">protected</span><span class="pln"></span><span class="kwd">override</span><span class="pln"></span><span class="typ">ValidationResult</span><span class="pln"></span><span class="typ">IsValid</span><span class="pun">(</span><span class="kwd">object</span><span class="pln"> value</span><span class="pun">,</span><span class="pln"></span><span class="typ">ValidationContext</span><span class="pln"> validationContext</span><span class="pun">)</span></p></li><li class="L3" data-node-id="20240813131529-mebt7zd"><p><span class="pln"></span><span class="pun">{</span></p></li><li class="L4"><p><span class="pln"></span><span class="com">//your code here</span></p></li><li class="L5" data-node-id="20240813131529-6f59upt"><p><span class="pln"></span><span class="kwd">return</span><span class="pln"></span><span class="typ">ValidationResult</span><span class="pun">.</span><span class="typ">Success</span><span class="pun">;</span></p></li><li class="L6"><p><span class="pln"> </span></p></li><li class="L7" data-node-id="20240813131529-yepqde9"><p><span class="pln"></span><span class="com">//or</span></p></li><li class="L8"><p><span class="pln"></span><span class="kwd">return</span><span class="pln"></span><span class="kwd">new</span><span class="pln"></span><span class="typ">ValidationResult</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="typ">ErrorMessage</span><span class="pun">);</span></p></li><li class="L9" data-node-id="20240813131529-42mvnyf"><p><span class="pln"></span><span class="pun">}</span></p></li><li class="L0"><p><span class="pun">}</span></p></li></ol></pre>
 
-
 # What is Asp.Net Core meta package?
 
 The ASP.NET Core shared framework (Microsoft.AspNetCore.App) contains assemblies that are developed and supported by Microsoft. Microsoft.AspNetCore.App is installed when the .NET Core 3.0 or later SDK is installed. The shared framework is the set of assemblies (.dll files) that are installed on the machine and includes a runtime component and a targeting pack.
@@ -412,3 +411,9 @@ The ASP.NET Core shared framework (Microsoft.AspNetCore.App) contains assemblies
     ...
 </Project>
 ```
+
+# Middleware
+
+Middleware is a component that is assembled into the application pipeline to handle requests and responses.
+
+Middleware are chained one-after-other and execute in the same sequence how they're added.

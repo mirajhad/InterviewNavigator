@@ -19,3 +19,9 @@
 # societe generale
 
 # NCR Corporation
+
+# Persistent
+
+# Accion Labs
+
+# Empower
