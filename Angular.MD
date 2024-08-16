@@ -67,3 +67,41 @@ classComponent
 <app-child (someOutputName)="methodName()">
 </app-child>
 ```
+
+# Rxjs Subject
+
+Plain Observable unicast the values to observable
+
+subject class multicast the values to all observer at-a-time.
+
+Subject = Observable + Array of Observers
+
+```
+var mySubject = new Subject<dataType>();
+subject.next(data);
+
+mySubject.subscribe((data)=>{
+//so something
+})
+```
+
+# Rxjs BehaviourSubject
+
+BehaviourSubject stores the current value which is lastly broadcast to the observer.
+
+# ContentChild
+
+child to grandChild
+
+# ElementRef
+
+Represent plain html tags of the template
+
+```
+<div #refvariable></div>
+
+class Component
+{
+	@ViewChild("refvariable"): variableName:ElementRef
+}
+```
