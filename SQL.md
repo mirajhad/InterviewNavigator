@@ -88,3 +88,45 @@ SELECT DeptId, COUNT(*) as 'No of Employees'
 FROM Employee
 GROUP BY DeptId;
 ```
+
+## Create a Primary Key in an Existing Table
+
+```sql
+ALTER TABLE Employee
+ADD CONSTRAINT PK_Employee_EmployeeID PRIMARY KEY (EmployeeID)
+```
+
+# Delete a Primary Key
+
+```sql
+ALTER TABLE Employee 
+DROP CONSTRAINT PK_Employee_EmployeeID;   
+```
+
+# Create a Foreign Key
+
+```sql
+CREATE TABLE Employee(
+EmployeeID int IDENTITY (1,1) NOT NULL,
+FirstName nvarchar (50) NOT NULL,
+LastName nvarchar (50) NOT NULL,
+DepartmentID int NULL, 
+CONSTRAINT PK_EmployeeID PRIMARY KEY (EmployeeID), 
+CONSTRAINT FK_Employee_Department FOREIGN KEY (DepartmentID)
+REFERENCES Department (DepartmentID)
+ON DELETE CASCADE
+ON UPDATE CASCADE)
+```
+
+# Delete a Foreign Key
+
+```sql
+ALTER TABLE Employee   
+DROP CONSTRAINT FK_Employee_Department
+```
+
+# Candidate Vs Primary
+
+`Candidate Key` – A Candidate Key can be any column or a combination of columns that can  **qualify as unique key in database** . There can be multiple Candidate Keys in one table. Each Candidate Key can qualify as Primary Key.
+
+`Primary Key` – A Primary Key is a column or a combination of columns that  **uniquely identify a record** . Only one Candidate Key can be Primary Key.
