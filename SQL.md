@@ -68,4 +68,23 @@ EXEC sp_rename 'Employee', 'Consultant';
 SELECT DATEDIFF(yy, '1995-12-31', '2024-08-20') AS DaysBetween;
 ```
 
----
+## Update Multiple Columns
+
+```sql
+UPDATE Employee
+SET Email = 'jb007@test.com', Phone = '111.111.0007', HireDate='05-23-2001'
+WHERE EmployeeID = 3;
+```
+
+# GROUP BY
+
+```sql
+SELECT DeptId, COUNT(EmpId) as 'Number of Employees' 
+FROM Employee
+GROUP BY DeptId;
+
+--following query will return same data as above
+SELECT DeptId, COUNT(*) as 'No of Employees' 
+FROM Employee
+GROUP BY DeptId;
+```
