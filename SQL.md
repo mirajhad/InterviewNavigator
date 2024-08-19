@@ -48,4 +48,24 @@ FROM Orders
 
 INNER JOIN Customers ON Orders.customer_id = Customers.customer_id;
 
+
+# Delete Columns of a Table
+
+```sql
+ALTER TABLE dbo.Employee
+DROP COLUMN Address, Phone, Email;
+```
+
+# Rename Table
+
+```sql
+EXEC sp_rename 'Employee', 'Consultant';
+```
+
+# Find Year
+
+```
+SELECT DATEDIFF(yy, '1995-12-31', '2024-08-20') AS DaysBetween;
+```
+
 ---
