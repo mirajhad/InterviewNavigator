@@ -1,20 +1,9 @@
+**S - Single-responsibility principle.** A class should have one and only one reason to change, meaning that a class should have only one job.
 
-# **Single Responsibility Principle (SRP)**
+**O - Open-closed principle.** Objects or entities should be open for extension, but closed for modification.
 
-A software module or class should have one-and-only reason to change.
+**L - Liskov substitution principle.** Instance of a child class must replace an instance of the parent class without affecting the results. That means both child class’s instance and parent class’s instance should offer same functionality of common methods.
 
-# **Liskov Subsitution Principle (LSP)**
+**I - Interface segregation principle.** A client should never be forced to implement an interface that it doesn't use or clients shouldn't be forced to depend on methods they do not use.
 
-Subtypes must be substitutable for their base types.
-
-# **Open-Closed Principle (OCP)**
-
-A class is closed for modifications; but open for extension.
-
-# **Interface Segregation Principle (ISP)**
-
-No client class should be forced to depend on methods it does not use.
-
-# **Dependency Inversion Principle (DIP)**
-
-High-level modules should not depend on low-level modules. Both should depend upon abstractions.
+**D - Dependency Inversion Principle.** Entities must depend on abstractions not on concretions. It states that the high level module must not depend on the low level module, but they should depend on abstractions.
