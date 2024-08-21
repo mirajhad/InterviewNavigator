@@ -166,6 +166,48 @@ int num =5;
 
 making the members of a class non-public
 
+```
+using System;
+
+class BaseClass{
+
+	public virtual void Method1(){
+	Console.WriteLine("BaseClass M1");
+	}
+
+	public virtual void Method2(){
+	Console.WriteLine("BaseClass M2");
+	}
+}
+
+class DerivedClass: BaseClass{
+	public override void Method1(){
+	Console.WriteLine("DerivedClass M1");
+	}
+
+	public new void Method2(){
+	Console.WriteLine("DerivedClass M2");
+	}
+}
+
+
+
+public class Program
+{
+	public static void Main()
+	{
+		BaseClass b = new BaseClass();
+		b.Method1();
+		b.Method2();
+	
+		BaseClass c = new DerivedClass();
+		c.Method1();
+		c.Method2();
+	
+	}
+}
+```
+
 # ACCESS MODIFIER
 
 Protected:- members can be used in the derived classess, but they can't be used outside.
