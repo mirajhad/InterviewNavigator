@@ -1,4 +1,11 @@
-Second highest age
+# Table Join
+
+```
+select first_name,item from Customers
+join Orders where Customers.customer_id==Orders.customer_id
+```
+
+# Second highest age
 
 SELECT DISTINCT AGE
 
@@ -47,7 +54,6 @@ SELECT*
 FROM Orders
 
 INNER JOIN Customers ON Orders.customer_id = Customers.customer_id;
-
 
 # Delete Columns of a Table
 
