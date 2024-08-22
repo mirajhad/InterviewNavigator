@@ -59,7 +59,7 @@ public class HelloWorld
 ```
 using System;
 using System.Linq;
-		
+	
 public class Program
 {
 	public static void Main()
@@ -76,7 +76,7 @@ public class Program
 ## Remove duplicate
 
 ```
-using System;	
+using System;
 public class Program
 {
 	public static void Main()
@@ -130,7 +130,7 @@ public class Program
 
 ```
 using System;
-		
+	
 public class Program
 {
 	public static void Main()
@@ -148,7 +148,7 @@ public class Program
 using System;
 using System.Collections.Generic;
 using System.Linq;
-		
+	
 public class Program
 {
 	public static void Main()
@@ -170,7 +170,7 @@ public class Program
 
 ```
 using System;
-	
+
 public class Program
 {
 	public static void Main()
@@ -191,7 +191,7 @@ public class Program
 
 ```
 using System;
-	
+
 public class Program
 {
 	public static void Main()
@@ -249,7 +249,7 @@ class Program
 
 ```
 using System;
-		
+	
 public class Program
 {
 	public static void Main()
@@ -270,7 +270,7 @@ public class Program
 
 ```
 using System;
-	
+
 public class Program
 {
 	public static void Main()
@@ -298,7 +298,7 @@ public class Program
 ```
 using System;
 using System.Linq;
-				
+			
 public class Program
 {
 	public static void Main()
@@ -306,6 +306,45 @@ public class Program
 		string[] st= ["fox","ox","DOG"];
 		var data = st.Any(x=>x.All(le => char.IsUpper(le)));
 		Console.WriteLine(data);
+	}
+}
+```
+
+# Bubble Sort
+
+```
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int[] arr =
+		{
+			800,
+			11,
+			50,
+			771,
+			649,
+			770,
+			240,
+			9
+		};
+		int temp = 0;
+		for (int i = 0; i < arr.Length; i++)
+		{
+			for (int j = 0; j < arr.Length - 1; j++)
+			{
+				if (arr[j] > arr[j + 1])
+				{
+					temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+
+			Console.Write("{0} ",arr[i]);
+		}
 	}
 }
 ```

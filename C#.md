@@ -91,7 +91,7 @@ I'm B
 I'm A
 ```
 
-Ref Keyword
+# Ref Keyword
 
 ```
 class Student
@@ -137,3 +137,21 @@ class Program
 }
 
 ```
+
+# Out Keyword
+
+The `out` keyword is especially useful when a method needs to return more than one value since more than one `out` parameter can be used 
+
+# Type Conversion
+
+'Type Conversion' is a process of convert a value from one type (source type) to another type (destination type).
+
+Eg: int -> long
+
+1. Implicit Casting
+
+(from lower-numerical-type to higher-numerical-type)
+
+2. Explicit Casting
+
+(from higher-numerical-type to lower-numerical-type)
