@@ -270,7 +270,7 @@ public class Program
 
 ```
 using System;
-				
+			
 public class Program
 {
 	public static void Main()
@@ -374,7 +374,7 @@ public class Program
 
 ```
 using System;
-		
+	
 public class Program
 {
 	public static void Main()
@@ -446,4 +446,28 @@ class Program
         Console.WriteLine(sum);
     }
 }
+```
+
+# Convert string into Array of Integers
+
+```
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        string s="1,2,3,4";
+		List<int> da = new List<int>();
+		string[] stringArray = s.Split(',');
+	
+		foreach(var n in stringArray){
+			int data = int.Parse(n);
+			da.Add(data);
+		}
+		Console.WriteLine(string.Join(",", da));
+    }
+}
+
 ```
