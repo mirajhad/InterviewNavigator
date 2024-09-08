@@ -266,6 +266,26 @@ public class Program
 }
 ```
 
+# Reverse an Array
+
+```
+using System;
+				
+public class Program
+{
+	public static void Main()
+	{
+		int[] ar=[9,1,2,3,4,4,];
+		int[] ar1= new int[ar.Length];
+		for(int i=0,j=ar.Length - 1;i<j;i++,j--){
+			ar1[i]=ar[j];
+			ar1[j]=ar[i];
+		}
+		Console.WriteLine(string.Join(", ", ar1));
+	}
+}
+```
+
 # Move zero at Last
 
 ```
@@ -298,7 +318,7 @@ public class Program
 ```
 using System;
 using System.Linq;
-		
+
 public class Program
 {
 	public static void Main()
@@ -313,12 +333,6 @@ public class Program
 # Bubble Sort
 
 ```
-
-
-
-
-
-
 
 using System;
 
@@ -360,7 +374,7 @@ public class Program
 
 ```
 using System;
-				
+		
 public class Program
 {
 	public static void Main()
@@ -378,10 +392,58 @@ public class Program
 		for(var i=0;i<ar.Length;i++){
 		Console.WriteLine(ar[i]);
 		}
-	
+
 		Console.Write("Enter your name: ");
 		int name = Convert.ToInt32(Console.ReadLine());
 		Console.WriteLine(ar[name-1]);
 	}
+}
+```
+
+# Largest Array Value
+
+```
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = [ 5, 8, 2, 10, 3 ];
+        int maxValue = numbers[0]; 
+
+        foreach (int number in numbers)
+        {
+            if (number > maxValue)
+            {
+                maxValue = number;
+            }
+        }
+
+        Console.WriteLine("The highest value is: " + maxValue);
+    }
+}
+
+```
+
+# Sum of Array
+
+```
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = [ 3,4,6,4 ];
+        int sum=0;
+
+        foreach (int number in numbers)
+        {
+            sum+=number;
+        }
+
+        Console.WriteLine(sum);
+    }
 }
 ```
