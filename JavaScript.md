@@ -43,8 +43,6 @@ calculateTotalMarks.apply(student2, [ 56, 45, 88 ] );
 
 The **`bind()`** method of [`Function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) instances creates a new function that, when called, calls this function with its `this` keyword set to the provided value, and a given sequence of arguments preceding any provided when the new function is called.
 
-
-
 var student2 = {
   studentName: "John",
   section: "B"
@@ -64,8 +62,33 @@ student1Calculate(60, 70, 80); //executes the function; this = student1
 var student2Calculate = calculateTotalMarks.bind(student2); //it creates a new function and stores reference of student2 as "this" keyword. The function will not be executed.
 student2Calculate(56, 45, 88); //executes the function; this = student2
 
-
 var student1 = {
   studentName: "Scott",
   section: "A"
 };
+
+# Hoisting
+
+Hoisting is JavaScript's default behavior of moving declarations to the top.
+
+
+```
+alert(Sum(5, 5)); // 10
+
+function Sum(val1, val2)
+{
+    return val1 + val2;
+}
+```
+
+
+Please note that JavaScript compiler does not move function expression.
+
+```
+Add(5, 5); // error
+
+var Add = function Sum(val1, val2)
+{
+    return val1 + val2;
+}
+```
