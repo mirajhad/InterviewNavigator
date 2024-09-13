@@ -34,9 +34,7 @@ public class Program
 	}
 }
 
-
 # Abstract class
-
 
 using System;
 
@@ -61,3 +59,19 @@ class Program
         myDog.MakeSound();  // Output: Woof!
     }
 }
+
+# Closure
+
+
+```
+function makeCounter() {
+  let count = 0;
+  return function() {
+    return count++;
+  };
+}
+
+let counter = makeCounter();
+console.log(counter()); // Outputs: 0
+console.log(counter()); // Outputs: 1
+```
