@@ -199,11 +199,11 @@ public class Program
 		BaseClass b = new BaseClass();
 		b.Method1();
 		b.Method2();
-	
+
 		BaseClass c = new DerivedClass();
 		c.Method1();
 		c.Method2();
-	
+
 	}
 }
 ```
@@ -211,3 +211,9 @@ public class Program
 # ACCESS MODIFIER
 
 Protected:- members can be used in the derived classess, but they can't be used outside.
+
+# Constructor
+
+private constructor
+
+When a class contains a private constructor then we cannot create an object for the class outside of the class. So, private constructors are used to create an object for the class within the same class. Generally, private constructors are used in the Remoting concept.
