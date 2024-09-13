@@ -33,3 +33,31 @@ public class Program
 		e.Display();
 	}
 }
+
+
+# Abstract class
+
+
+using System;
+
+abstract class Animal
+{
+    public abstract void MakeSound();
+}
+
+class Dog : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Woof!");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Dog myDog = new Dog();
+        myDog.MakeSound();  // Output: Woof!
+    }
+}
