@@ -82,13 +82,13 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-
 app.UseSession();
 
 HttpContext.Session.SetInt32();
 
-HttpContext.Session.Clear();
+var sessionObj = HttpContext.Session.GetString("loginDetails");
 
+HttpContext.Session.Clear();
 
 @if (HttpContextAccessor.HttpContext.Session.GetInt32(SD.SessionCart) != null)
 {
@@ -98,4 +98,20 @@ HttpContext.Session.Clear();
             (@HttpContextAccessor.HttpContext.Session.GetInt32(SD.SessionCart))
         `</a>`
     `</li>`
+}
+
+# Middleware
+
+# Migration
+
+void ApplyMigration()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var _db = scope.ServiceProvider.GetRequiredService `<AppDbContext>`();
+        if (_db.Database.GetPendingMigrations().Count() > 0)
+        {
+            _db.Database.Migrate();
+        }
+    }
 }
