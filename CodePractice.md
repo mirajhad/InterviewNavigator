@@ -62,8 +62,6 @@ class Program
 
 # Closure
 
-
-```
 function makeCounter() {
   let count = 0;
   return function() {
@@ -74,4 +72,30 @@ function makeCounter() {
 let counter = makeCounter();
 console.log(counter()); // Outputs: 0
 console.log(counter()); // Outputs: 1
-```
+
+# Session
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(100);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+
+app.UseSession();
+
+HttpContext.Session.SetInt32();
+
+HttpContext.Session.Clear();
+
+
+@if (HttpContextAccessor.HttpContext.Session.GetInt32(SD.SessionCart) != null)
+{
+    `<li class="nav-item">`
+        `<a class="nav-link text-dark" asp-area="Customer" asp-controller="Cart" asp-action="Index">`
+            `<i class="bi bi-cart">` &nbsp;`</i>`
+            (@HttpContextAccessor.HttpContext.Session.GetInt32(SD.SessionCart))
+        `</a>`
+    `</li>`
+}
