@@ -156,3 +156,12 @@ public static T Add`<T>`(T number1, T number2)
     dynamic b = number2;
     return a + b;
 }
+
+# View In SQL
+
+```sql
+CREATE VIEW sales_employees AS
+SELECT name, salary
+FROM employees
+WHERE department = 'Sales';
+```
