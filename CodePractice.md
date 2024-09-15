@@ -60,6 +60,38 @@ class Program
     }
 }
 
+# Inherit
+
+using System;
+
+class A{
+	public virtual void Method(){
+	Console.WriteLine("class A Method");
+	}
+}
+
+class B:A{
+public override void Method(){
+	Console.WriteLine("class B Method");
+}
+
+}
+public class Program
+{
+	public static void Main()
+	{
+		A a = new A();
+			a.Method();
+
+    A x = new A();
+		x.Method();
+
+    B b = new B();
+			b.Method();
+
+    }
+}
+
 # Closure
 
 function makeCounter() {

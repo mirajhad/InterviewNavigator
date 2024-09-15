@@ -41,7 +41,7 @@ where observable is a data source, subscribe is like a method/function , Observe
 
 # @Input Binding
 
-An Input Property is a settable property, annoted with an @Input() decorator.
+This decorator allows a parent component to pass data to a child component.
 
 ```
 class ChildComponent
@@ -56,7 +56,7 @@ class ChildComponent
 
 # @Output Binding
 
-An Output Property is an observable property, annoted with an @Output() decorator
+This decorator, combined with `EventEmitter`, allows a child component to send data back to the parent component.
 
 ```
 classComponent
