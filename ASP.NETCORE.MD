@@ -281,6 +281,10 @@ To receive model collections from the controller: `@model List<modelClassNameHer
 
 # HTML Helpers
 
+@Html.DisplayFor(modelItem => item.Id)
+
+@Html.ActionLink("Edit", "Edit", new { id = item.Id })
+
 * Binds HTML elements to Model Properties.
 * Pre-defined methods that execute on server and generate (render) a specific html tag at run time.
 * @Html is an object of HtmlHelper class.
@@ -420,20 +424,17 @@ Middleware are chained one-after-other and execute in the same sequence how they
 
 Middleware can be a request delegate (anonymous method or lambda expression) [or] a class.
 
-
 **app.Run( )**
 
 <pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="pln">app</span><span class="pun">.</span><span class="typ">Run</span><span class="pun">(</span><span class="pln">async </span><span class="pun">(</span><span class="typ">HttpContext</span><span class="pln"> context</span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span></p></li><li class="L1" data-node-id="20240816162155-p8fwuzv"><p><span class="pun">{</span></p></li><li class="L2"><p><span class="com">//code</span></p></li><li class="L3" data-node-id="20240816162155-cz1eeik"><p><span class="pun">});</span></p></li></ol></pre>
 
 The extension method called “Run” is used to execute a terminating / short-circuiting middleware that doesn’t forward the request to the next middleware.
 
-
 **app.Use( )**
 
 <pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="pln">app</span><span class="pun">.</span><span class="typ">Use</span><span class="pun">(</span><span class="pln">async </span><span class="pun">(</span><span class="typ">HttpContext</span><span class="pln"> context</span><span class="pun">,</span><span class="pln"></span><span class="typ">RequestDelegate</span><span class="pln"></span><span class="kwd">next</span><span class="pun">)</span><span class="pln"></span><span class="pun">=></span></p></li><li class="L1" data-node-id="20240816162204-dlayh8d"><p><span class="pun">{</span></p></li><li class="L2"><p><span class="pln"></span><span class="com">//before logic</span></p></li><li class="L3" data-node-id="20240816162204-o61zhd1"><p><span class="pln">  await </span><span class="kwd">next</span><span class="pun">(</span><span class="pln">context</span><span class="pun">);</span></p></li><li class="L4"><p><span class="pln"></span><span class="com">//after logic</span></p></li><li class="L5" data-node-id="20240816162204-peu7e52"><p><span class="pun">});</span></p></li></ol></pre>
 
 The extension method called “Use” is used to execute a non-terminating / short-circuiting middleware that may / may not forward the request to the next middleware.
-
 
 #### Middleware Class
 
@@ -443,9 +444,7 @@ Middleware class is used to separate the middleware logic from a lambda expressi
 
 `app.UseMiddleware<MiddlewareClassName>();`
 
-
 #### The Right Order of Middleware
-
 
 1. **app**.**UseExceptionHandler**(**"/Error"**);
 2. **app**.**UseHsts**();
@@ -459,7 +458,6 @@ Middleware class is used to separate the middleware logic from a lambda expressi
 10. **app**.**MapControllers**();
 11. **//add your custom middlewares**
 12. **app**.**Run**();
-
 
 **app.UseWhen( )**
 
