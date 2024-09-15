@@ -140,7 +140,7 @@ class Program
 
 # Out Keyword
 
-The `out` keyword is especially useful when a method needs to return more than one value since more than one `out` parameter can be used 
+The `out` keyword is especially useful when a method needs to return more than one value since more than one `out` parameter can be used
 
 # Type Conversion
 
@@ -155,3 +155,46 @@ Eg: int -> long
 2. Explicit Casting
 
 (from higher-numerical-type to lower-numerical-type)
+
+# Delegate
+
+using System;
+
+// Delegate declaration
+public delegate int PerformCalculation(int x, int y);
+
+class Program
+{
+    // Method that matches the delegate signature
+    public static int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    static void Main(string[] args) 
+    {
+        // Instantiating the delegate
+        PerformCalculation calc = new PerformCalculation(Add);
+
+    // Calling the method through the delegate
+        int result = calc(5, 3);
+        Console.WriteLine(result); // Output: 8
+    }
+}
+
+# For And Foreach
+
+for-for is faster, need modification, 
+
+foreach-no need modification, enumeration, inside loop Add method not recommended.
+
+# Generic Method
+
+```csharp
+public static T Add<T>(T number1, T number2)
+{
+    dynamic a = number1;
+    dynamic b = number2;
+    return a + b;
+}
+```
