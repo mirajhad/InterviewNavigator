@@ -166,3 +166,13 @@ FROM employees
 WHERE department = 'Sales';
 
 END
+
+# Temporary Table
+
+A temporary table in SQL is a table that exists temporarily and is typically used to store intermediate results that you need to access multiple times within a session.
+
+CREATE TABLE #TempTable (
+    ID INT PRIMARY KEY,
+    Name NVARCHAR(50),
+    Age INT
+);
