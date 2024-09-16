@@ -345,13 +345,16 @@ Filters Execute at a specific situation, while executing an action method.
 
 **Action Filters**
 
-* Executes before and after of action method execution. You can modify the ViewBag, before sending it result.
+* Action filters allow us to execute code before or after the execution of action methods in controllers. Action Filters are useful for handling cross-cutting concerns within an application, such as Logging, Authentication, Authorization, Caching, Exception Handling, etc.
 * Implemented using IActionFilter
 
 **Result Filters**
 
-* Executes before and after of result execution. You can modify the result.
-* Implemented using IResultFilter
+Result Filters are a specific type of filter that runs after the action method has been executed but before the result is processed and sent to the client. This means that with Result Filters, we can modify the view or the result data before it is returned to the client.
+
+OnExecuted
+
+OnExecuting
 
 **Exception Filters**
 
@@ -464,3 +467,12 @@ Middleware class is used to separate the middleware logic from a lambda expressi
 <pre class="prettyprint linenums prettyprinted" role="presentation"><ol class="linenums"><li class="L0"><p><span class="pln">app</span><span class="pun">.</span><span class="typ">UseWhen</span><span class="pun">(</span></p></li><li class="L1" data-node-id="20240816162333-s46y8rw"><p><span class="pln">  context </span><span class="pun">=></span><span class="pln"></span><span class="pun">{</span><span class="pln"></span><span class="kwd">return</span><span class="pln"></span><span class="kwd">boolean</span><span class="pun">;</span><span class="pln"></span><span class="pun">},</span></p></li><li class="L2"><p><span class="pln">  app </span><span class="pun">=></span></p></li><li class="L3" data-node-id="20240816162333-jkda115"><p><span class="pln"></span><span class="pun">{</span></p></li><li class="L4"><p><span class="pln"></span><span class="com">//add your middlewares</span></p></li><li class="L5" data-node-id="20240816162333-zj23qua"><p><span class="pln"></span><span class="pun">}</span></p></li><li class="L6"><p><span class="pun">);</span></p></li></ol></pre>
 
 The extension method called “UseWhen” is used to execute a branch of middleware only when the specified condition is true.
+
+
+# Caching
+
+ASP.NET Core supports several types of caching:
+
+* **In-memory Caching:** In this case, data is stored in the web server’s Memory (RAM). This is simple to implement, very fast, and ideal for single-server scenarios.
+* **Distributed Caching:** In this case, it uses external cache stores like Redis or SQL Server. This is suitable for applications running on multiple servers in a load-balancing environment.
+* **Response Caching:** In this case, it caches the responses of HTTP requests to improve the response time for similar requests. Stores the output of a request and reuses it for similar requests.
