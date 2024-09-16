@@ -83,7 +83,7 @@ public class Program
 		A a = new A();
 			a.Method();
 
-    A x = new A();
+    A x = new B();
 		x.Method();
 
     B b = new B();
@@ -150,7 +150,7 @@ void ApplyMigration()
 
 # Generic Method
 
-public static T Add`<T>`(T number1, T number2)
+public static T Add `<T>`(T number1, T number2)
 {
     dynamic a = number1;
     dynamic b = number2;
