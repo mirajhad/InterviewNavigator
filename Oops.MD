@@ -1,50 +1,59 @@
 # **DELEGATE**
 
-A delegate can be seen as a placeholder for a/some method(s).
+In C#, a **delegate** is a type that represents references to methods with a specific parameter list and return type. When you instantiate a delegate, you can associate its instance with any method that matches its signature. This allows you to call the method through the delegate instance.
 
-By defining a delegate, you are saying to the user of your class, " *Please feel free to assign any method that matches this signature to the delegate and it will be called each time my delegate is called* ".
+```csharp
+using System;
+public delegate int performCalc(int x, int y);		
+public class Program
+{
+	public static int Add(int x, int y){
+	return x+y;
+	}
+	public static void Main()
+	{
+		performCalc cal = new performCalc(Add);
+		var data = cal(3,5);
 
-Typical use is of course events. All the OnEventX *delegate* to the methods the user defines.
+		Console.WriteLine(data);
+	}
+}
+```
 
-Delegates are useful to offer to the **user** of your objects some ability to customize their behavior. Most of the time, you can use other ways to achieve the same purpose and I do not believe you can ever be **forced** to create delegates. It is just the easiest way in some situations to get the thing done.
 
 # EVENT
 
-To understand event handlers, you need to understand delegates. In C#, you can think of a delegate as a pointer (or a reference) to a method. This is useful because the pointer can be passed around as a value.
+Events enable a class or object to notify other classes or objects when something of action occurs. The class that sends (or raises) the event is called the publisher and the classes that receive (or handle) the event are called subscribers. There can be multiple subscribers to a single event.
 
-The central concept of a delegate is its signature, or shape. That is (1) the return type and (2) the input arguments. For example, if we create a delegate void MyDelegate(object sender, EventArgs e), it can only point to methods which return void, and take an object and EventArgs. Kind of like a square hole and a square peg. So we say these methods have the same signature, or shape, as the delegate.
+```csharp
 
-So knowing how to create a reference to a method, let's think about the purpose of events: we want to cause some code to be executed when something happens elsewhere in the system - or "handle the event". To do this, we create specific methods for the code we want to be executed. The glue between the event and the methods to be executed are the delegates. The event must internally store a "list" of pointers to the methods to call when the event is raised.* Of course, to be able to call a method, we need to know what arguments to pass to it! We use the delegate as the "contract" between the event and all the specific methods that will be called.
-
-So the default EventHandler (and many like it) represents a specific shape of method (again, void/object-EventArgs). When you declare an event, you are saying which shape of method (EventHandler) that event will invoke, by specifying a delegate:
-
-```
-//This delegate can be used to point to methods
-//which return void and take a string.
-public delegate void MyEventHandler(string foo);
-
-//This event can cause any method which conforms
-//to MyEventHandler to be called.
-public event MyEventHandler SomethingHappened;
-
-//Here is some code I want to be executed
-//when SomethingHappened fires.
-void HandleSomethingHappened(string foo)
+using System;// Declare a delegate type
+public delegate int performCalc(int x, int y);// Declare a class that has an event
+public class Program
 {
-    //Do some stuff
+    // Declare the event using the delegate
+    public static event performCalc CalculationPerformed;    // Method that performs addition
+    public static int Add(int x, int y)
+    {
+        return x + y;
+    }    // Method to trigger the event
+    public static void OnCalculationPerformed(int x, int y)
+    {
+        // If there are any subscribers to the event, invoke them
+        if (CalculationPerformed != null)
+        {
+            int result = CalculationPerformed(x, y);
+            Console.WriteLine($"Event triggered. Result of calculation: {result}");
+        }
+    }    public static void Main()
+    {
+        // Subscribe the Add method to the CalculationPerformed event
+        CalculationPerformed += new performCalc(Add);    // Call the method that triggers the event
+        OnCalculationPerformed(3, 5);
+    }
 }
-
-//I am creating a delegate (pointer) to HandleSomethingHappened
-//and adding it to SomethingHappened's list of "Event Handlers".
-myObj.SomethingHappened += new MyEventHandler(HandleSomethingHappened);
-
-//To raise the event within a method.
-SomethingHappened("bar");
-
-
 ```
 
-(*This is the key to events in .NET and peels away the "magic" - an event is really, under the covers, just a list of methods of the same "shape". The list is stored where the event lives. When the event is "raised", it's really just "go through this list of methods and call each one, using these values as the parameters". Assigning an event handler is just a prettier, easier way of adding your method to this list of methods to be called).
 
 # **METHOD OVERLOADING AND METHOD OVERRIDING**
 
@@ -57,7 +66,7 @@ Method overloading deals with the notion of having two or more methods in the sa
 void foo(int a)
 void foo(int a, float b)
 
-```
+```csharp
 using System;
 
 
@@ -95,7 +104,7 @@ public class Program
 
 Method overriding means having two methods with the same arguments, but different implementations. One of them would exist in the parent class, while another will be in the derived, or child class.
 
-```
+```csharp
 public class BaseClass
 {
     public virtual void Display()
@@ -166,7 +175,7 @@ int num =5;
 
 making the members of a class non-public
 
-```
+```csharp
 using System;
 
 class BaseClass{
