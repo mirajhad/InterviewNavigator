@@ -171,7 +171,7 @@ class Program
         return a + b;
     }
 
-    static void Main(string[] args) 
+    static void Main(string[] args)
     {
         // Instantiating the delegate
         PerformCalculation calc = new PerformCalculation(Add);
@@ -184,7 +184,7 @@ class Program
 
 # For And Foreach
 
-for-for is faster, need modification, 
+for-for is faster, need modification,
 
 foreach-no need modification, enumeration, inside loop Add method not recommended.
 
@@ -198,3 +198,22 @@ public static T Add<T>(T number1, T number2)
     return a + b;
 }
 ```
+
+# Thread
+
+Threads in C# allow you to perform multiple operations simultaneously, making your applications more responsive and efficient.
+
+You can control thread behavior using various methods and properties:
+
+* **Start** : Begins thread execution.
+* **Join** : Waits for the thread to finish.
+* **Abort** : Stops the thread (not recommended in .NET Core).
+* **Sleep** : Pauses the thread for a specified time.
+
+# 2D Array
+
+**int[,] A = {{2, 5, 9},{6, 9, 15}};**
+
+# Task
+
+**Task** represents an asynchronous operation. It’s part of the `System.Threading.Tasks` namespace and is used to perform operations asynchronously on thread pool threads rather than the main thread.
