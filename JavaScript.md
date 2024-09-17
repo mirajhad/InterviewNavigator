@@ -130,3 +130,13 @@ init();
 * **Use Cases** :
 * `slice()`: When you need a portion of the array without altering the original.
 * [`splice()`: When you need to add, remove, or replace elements in the array](https://www.geeksforgeeks.org/what-is-the-difference-between-array-slice-and-array-splice-in-javascript/)
+
+
+# hasOwnProperty
+
+* Checks only the object’s own properties.
+
+let user = { name: "John", age: 30 };
+
+console.log(user.hasOwnProperty('name')); // true
+console.log(user.hasOwnProperty('address')); // false
