@@ -71,7 +71,6 @@ var student1 = {
 
 Hoisting is JavaScript's default behavior of moving declarations to the top.
 
-
 ```
 alert(Sum(5, 5)); // 10
 
@@ -80,7 +79,6 @@ function Sum(val1, val2)
     return val1 + val2;
 }
 ```
-
 
 Please note that JavaScript compiler does not move function expression.
 
@@ -108,8 +106,6 @@ for (var i = 0; i < 3; i++) {
 a();
 ```
 
-
-
 ```
 function init() {
   var name = "Mozilla"; // name is a local variable created by init
@@ -121,3 +117,16 @@ function init() {
 }
 init();
 ```
+
+# Slice And Splice
+
+ * **Modification** :
+
+* `slice()`: Does not modify the original array.
+* `splice()`: Modifies the original array.
+* **Return Value** :
+* `slice()`: Returns a new array containing the extracted elements.
+* `splice()`: Returns an array containing the removed elements.
+* **Use Cases** :
+* `slice()`: When you need a portion of the array without altering the original.
+* [`splice()`: When you need to add, remove, or replace elements in the array](https://www.geeksforgeeks.org/what-is-the-difference-between-array-slice-and-array-splice-in-javascript/)
