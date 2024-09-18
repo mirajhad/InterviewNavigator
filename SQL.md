@@ -189,3 +189,27 @@ JOIN Packages P2
 ON P2.ID=Fr.Friend_ID
 WHERE P2.Salary>P1.Salary
 ORDER BY P2.Salary;
+
+# Transaction
+
+BEGIN TRANSACTION;
+
+-- Deduct from Account 1
+UPDATE Accounts
+SET Balance = Balance - 100
+WHERE AccountID = 1;
+
+-- Add to Account 2
+UPDATE Accounts
+SET Balance = Balance + 100
+WHERE AccountID = 2;
+
+-- Check for errors and commit or rollback
+IF @@ERROR = 0
+BEGIN
+    COMMIT;
+END
+ELSE
+BEGIN
+    ROLLBACK;
+END;
