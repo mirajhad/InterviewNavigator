@@ -176,3 +176,16 @@ CREATE TABLE #TempTable (
     Name NVARCHAR(50),
     Age INT
 );
+
+# friend salary
+
+SELECT St.Name
+FROM Students St
+JOIN Friends Fr
+ON St.ID=Fr.ID
+JOIN Packages P1
+ON P1.ID= Fr.ID
+JOIN Packages P2
+ON P2.ID=Fr.Friend_ID
+WHERE P2.Salary>P1.Salary
+ORDER BY P2.Salary;
