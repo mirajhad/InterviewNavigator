@@ -4,7 +4,7 @@ In C#, a **delegate** is a type that represents references to methods with a spe
 
 ```csharp
 using System;
-public delegate int performCalc(int x, int y);		
+public delegate int performCalc(int x, int y);
 public class Program
 {
 	public static int Add(int x, int y){
@@ -19,7 +19,6 @@ public class Program
 	}
 }
 ```
-
 
 # EVENT
 
@@ -53,7 +52,6 @@ public class Program
     }
 }
 ```
-
 
 # **METHOD OVERLOADING AND METHOD OVERRIDING**
 
@@ -148,14 +146,6 @@ As a structure is a value type, we can't assign null to a struct object, but it 
 # Difference between the Equality Operator (==) and Equals() Method in C#
 
 # What is Boxing and Unboxing in C#
-
-# OUT AND REF
-
-Declaring an out method is useful when you want a method to return multiple values. A method that uses an out parameter can still return a value. A method can have more than one out parameter.
-
-The out keyword causes arguments to be passed by reference. This is similar to the ref keyword, except that ref requires that the variable be initialized before being passed. To use an out parameter, both the method definition and the calling method must explicitly use the out keyword.
-
-Although variables passed as an out arguments need not be initialized prior to being passed, the calling method is required to assign a value before the method returns.
 
 # IMPLICITLY AND EXPLICITLY VARIABLE
 
