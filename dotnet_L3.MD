@@ -196,3 +196,116 @@ var circuitBreaker = Policy
 .CircuitBreaker(3, TimeSpan.FromSeconds(30));
 
 2) Use a fallback mechanism (e.g., return cached data if the API is down).
+
+
+# 11. Handling Concurrency in a Banking System
+
+Q11: Two users try to transfer money at the same time. How do you prevent
+race conditions and ensure accuracy?
+
+1) Optimistic Concurrency Control (Occ)
+
+* Store a Version column and update only if the version matches.
+* Example in SQL:
+
+UPDATE Accounts
+SET Balance = Balance - @amount, Version = Version + 1
+WHERE AccountId = @id AND Version = @currentVersion
+
+2) Pessimistic Concurrency Control
+
+* Use row-level locking (SELECT ... FOR UPDATE).
+
+3) Eventual Consistency using Distributed Locks
+
+* Use Redis RedLock for distributed locking in microservices.
+
+# 12. Preventing API Rate Abuse
+
+Q12: How do you prevent malicious users from making excessive API calls?
+
+1) Rate limiting with Token Bucket or Leaky Bucket algorithms.
+2) Implement API Gateway-based throttling (Kong, Ocelot, Azure API Management)
+3) Use IP Whitelisting & Authentication-Based Limits.
+
+
+# 13. Ensuring Data Consistency Across Microservices
+
+Q13: How do you ensure consistency when multiple microservices update a shared record?
+
+1) Use a Saga Pattern (Orchestration or Choreography).
+2) Implement an Outbox Pattern to ensure transactions and events are processed together.
+3) Use Eventual Consistency with Kafka for event-driven updates.
+
+
+# 14. Secure Storage of Sensitive User Data
+
+Q14: How do you store sensitive customer data like card numbers securely?
+
+1) Encrypt data at rest using AES-256
+2) Use Hashing with Salt (bcrypt, Argon2) for passwords.
+3) Mask card details (e.g., **** **** **** 1234).
+
+
+# 15. Designing a Real-Time Fraud Detection System
+
+Q15: How would you design a fraud detection system for transactions?
+
+1) Use Machine Learning for Anomaly Detection (Azure ML, AWS SageMaker).
+2) Leverage Rule-Based Systems:
+
+* Flag transactions over a certain threshold.
+* Monitor unusual login locations or devices.
+
+3) Use Stream Processing with Kafka Streams.
+
+
+# 16. Avoiding Memory Leaks in Long-Running Services
+
+Q16: Your C# service runs for days and starts consuming too much memory. How do you fix this?
+
+1) Use Dispose and using statements for unmanaged resources.
+2) Enable garbage collection (GC) logging to detect leaks.
+3) Use memory profiling tools (dotMemory, PerfView).
+
+
+# 17. Designing a Scalable Logging System
+
+Q17: How do you design a logging system that scales for millions
+of transactions per second?
+
+1) Use centralized logging (Elasticsearch, Kibana, Logstash - ELK).
+2) Batch logs before writing to storage to reduce IOPS.
+3) logs in AWS S3 or Azure Blob for long-term retention.
+
+# 18. Handling Time Zones in a Global Financial System
+
+Q18: A customer in New York and another in London make transactions simultaneously.
+How do you store timestamps?
+
+1) Always store timestamps in UTC in the database.
+2) Convert to the user's local time at the frontend.
+3) Use DateTimeOffset in C# for time zone awareness.
+
+# 19. Scaling a .NET API to Handle Millions of Requests
+
+Q19: Your API is slowing down due to high traffic. How do you scale it?
+
+1) Implement load balancing (Nginx, AWS ELB, Azure Front Door).
+2) Cache frequently accessed data using Redis or MemoryCache.
+3) Use Kubernetes for auto-scaling microservices.
+
+# 20. Optimizing SQL Queries for Large Data Processing
+
+Q20: How do you optimize an SQL query that processes millions of records?
+
+1) Use indexes to speed up WHERE queries.
+2) Use partitioning to break large tables into smaller chunks.
+3) Use bulk inserts instead of row-by-row inserts.
+
+# 21. Handling Large Reports in a Financial System
+
+Q21: A customer requests a report for the last 2 years. How do you optimize it?
+
+1) Use pre-aggregated tables for reports.
+2) Stream reports using pagination instead of generating them all at once.
