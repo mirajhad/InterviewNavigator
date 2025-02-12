@@ -73,3 +73,126 @@ Instead of SERIALIZABLE, use READ COMMITTED or SNAPSHOT.
 var retryPolicy = Policy.Handle `<SqlException>`(ex = ex.Number = 1205)
 .Retry(3);
 retryPolicy. Execute(() =ExecuteTransaction());
+
+
+
+# 3. Handling High-Volume Concurrent Transactions
+
+Q3: Your bank's payment service is experiencing bottlenecks during peak hours. How do you optimize it?
+
+1) Use CQRS (Command Query Responsibility Segregation):
+
+* Write operations (transactions) go to SQL (normalized).
+* Read operations (transaction history, balances) use NoSQL (Elasticsearch, Redis, MongoDB).
+
+2) Event-driven processing (Kafka, RabbitMQ, or Azure Service Bus):
+
+* Instead of writing directly to the database, publish events like TransactionCompleted and process them asynchronously.
+
+3) Partitioning:
+
+* Use sharded databases so that different users' transactions are processed on different servers.
+
+# 4. Preventing Double-Spending in Distributed Transactions
+
+
+Q4: How do you ensure that a transaction is not processed twice in a distributed system?
+
+1) Implement idempotency keys:
+
+* Every request carries a unique transaction ID (Guid).
+* Before processing, check if this ID exists in the database.
+
+2) Two-Phase Commit (2PC) for distributed transactions:
+
+* Prepare phase: The system locks the resources and ensures they can be updated.
+* Commit phase: Once all services confirm, the transaction is committed.
+
+3) Use Outbox Pattern:
+
+* Store events in an outbox table before processing.
+* A background job picks and processes them exactly once.
+
+
+# 5. Optimizing Database Queries for Real-Time Processing
+
+
+Q5: The system is slowing down because some queries take too long.
+How do you optimize them?
+
+
+1) Use database indexing:
+
+CREATE INDEX idx_customer_id ON Transactions(CustomerId);
+
+* This speeds up lookups.
+
+2) Use pagination for large queries:
+
+SELECT * FROM Transactions ORDER BY TransactionDate DESC OFFSET 0 ROWS FETCH NEXT 50 ROWS ONLY;
+
+3) Avoid SELECT *** and retrieve only needed columns.
+4) Use read replicas to distribute query loads.
+
+# 6. Securing API Requests & Authentication
+
+Q6: How do you secure API requests in a financial system?
+
+1) Use JWT (JSON Web Tokens) with short expiration (e.g., 5 minutes).
+2) Implement rate-limiting to prevent abuse.
+3) Encrypt sensitive data in transit (TLS 1.2/1.3) and at rest (AES-256).
+4) HMAC Signature Verification for ensuring requests aren't tampered with.
+
+# 7. Handling Long-Running Processes in .NET
+
+Q7: A loan approval process takes 3-5 minutes. How do you handle
+this without blocking the system?
+
+* Use asynchronous processing with background jobs (e.g., Hangfire, Azure Functions).
+* Expose Webhooks so that once processing is done, the client gets notified.
+* Use SignalR for real-time updates instead of polling.
+
+
+# 8. Handling Race Conditions in Multi-Threaded Environments
+
+Q8: Two customers withdraw from the same account at the same time.
+How do you prevent over-withdrawal?
+
+
+1) Use database transactions with row-level locks:
+
+BEGIN TRANSACTION
+UPDATE AccountBalance SET Balance = Balance - @amount WHERE AccountId = @id AND Balance > @amount
+COMMIT
+
+* Ensures that if another process updates the balance first, the second one fails gracefully.
+
+2) Use optimistic concurrency with versioning:
+
+* Store a Version column and update only if the version matches.
+
+
+# 9. Logging & Monitoring in Production
+
+
+Q9: How do you debug a production issue in a high-traffic financial app?
+
+1) Use structured logging (Serilog, Seq, ELK Stack).
+2) Capture correlation IDs for tracing distributed transactions.
+3) Monitor metrics using Prometheus + Grafana.
+
+
+# 10. Handling API Failures in a Microservices Architecture
+
+
+Q10: A microservice API fails intermittently. How do you prevent
+it from affecting the entire system?
+
+
+1) Use Circuit Breaker (Polly):
+
+var circuitBreaker = Policy
+.Handle`<HttpRequestException>`()
+.CircuitBreaker(3, TimeSpan.FromSeconds(30));
+
+2) Use a fallback mechanism (e.g., return cached data if the API is down).
