@@ -1,4 +1,4 @@
-# Transaction Failures & Retry Mechanisms
+# 1. Transaction Failures & Retry Mechanisms
 
 Q1: During a transaction process, if a transaction fails,
 how do you figure it out and make sure it gets reprocessed?
@@ -309,3 +309,135 @@ Q21: A customer requests a report for the last 2 years. How do you optimize it?
 
 1) Use pre-aggregated tables for reports.
 2) Stream reports using pagination instead of generating them all at once.
+
+# 22.  Eventual Consistency in Distributed Systems
+
+Q22: What do you do when a payment status update is delayed due to network issues?
+
+1) Use an event-driven architecture with Kafka.
+2) Implement retry mechanisms for failed event processing.
+
+
+# 23.  Implementing Circuit Breakers in Microservices
+
+Q23: A downstream service fails frequently. How do you handle it gracefully?
+
+1) Use the Circuit Breaker pattern (Polly in C#).
+2) Fail fast and return a cached response if the service is down.
+
+# 24.  Preventing Unauthorized Transactions
+
+Q24: How do you prevent an unauthorized transaction from being processed?
+
+* Implement Two-Factor Authentication (2FA).
+* Use fraud detection algorithms based on user behavior.
+
+# 25. Caching Strategies for Real-Time Banking Data
+
+Q25: How do you cache financial data while ensuring accuracy?
+
+1) Cache non-sensitive data with Redis, but keep balances fresh.
+2) Use cache expiration and invalidation strategies.
+
+# 26. Secure Storage of API Keys
+
+Q26: Where should API keys and secrets be stored in a .NET application?
+
+1) Use Azure Key Vault or AWS Secrets Manager.
+2) Never store secrets in appsettings.json.
+
+# 27. WebSockets vs SignalR for Real-Time Updates
+
+Q27: Your application requires real-time updates for stock prices and transactions.
+Should you use WebSockets or SignalR?
+
+WebSockets: Ideal for low-level bidirectional communication where control over the
+connection is required.
+
+SignalR: Built on WebSockets but abstracts complexities like reconnection, message
+broadcasting, and fallback mechanisms.
+
+Best Choice: SignalR if you need automatic reconnections, broadcasting to multiple clients,
+and support for fallback transports (e.g., polling when WebSockets isn't available).
+
+# 28. Handling Mass Fund Transfers Efficiently
+
+Q28: A financial organization needs to process bulk salary disbursements for 10,000 employees.
+How would you design this?
+
+1) Batch Processing: Instead of processing each transfer individually, group them into batches
+   and process them asynchronously.
+2) Queue-Based Processing (RabbitMQ, Kafka): Send each transfer request to a queue and process
+   them in worker services to avoid overloading the system.
+3) Database Optimizations:
+
+* Use bulk inserts for writing transactions efficiently.
+
+*Implement table partitioning for faster lookups.
+
+# 29. Role-Based Access Control (RBAC) in a Banking App
+
+Q29: How do you restrict access to sensitive banking operations
+(e.g., admin features, account closures)?
+
+1) Implement Role-Based Access Control (RBAC):
+
+* Store user roles (Admin, Teller, Customer) in the database.
+* Apply authorization policies in .NET
+
+[Authorize(Roles = "Admin") ]
+public IActionResult CloseAccount() { }
+
+2) Use Claims-Based Authorization:
+
+* Assign fine-grained permissions instead of broad roles.
+
+# 30.  Building an Event-Driven Architecture for Bank Notifications
+
+Q30: How would you design an event-driven architecture for transaction alerts
+in a banking system?
+
+1) Events & Message Broker
+
+* When a transaction occurs, publish an event (TransactionCompleted).
+* Use Kafka or RabbitMQ as the message broker to distribute events asynchronously.
+
+2) Consumers & Processing
+
+* Consumers listen to transaction events and send email/SMS alerts.
+* Use separate SMS and Email microservices to process notifications independently.
+
+3) Example Code: Publishing to Kafka in C#
+
+var config = new ProducerConfig { BootstrapServers = "localhost:9092" };
+using var producer = new ProducerBuilder<Null, string>(config) .Build();
+await producer. ProduceAsync("transaction-alerts", new Message<Null, string>
+{ Value = "TransactionCompleted: $500" });
+
+4) Benefits
+
+* Scalability: Can handle millions of transactions concurrently.
+* Loose Coupling: Services are independent.
+* Retry Mechanism: Failed messages can be retried without blocking transactions.
+
+# 31. Using CQRS with Separate Read and Write Models in a Financial App
+
+Q31: Why would you use CQRS (Command Query Responsibility Segregation)
+in a banking app?
+
+1) Separation of Concerns
+
+* Commands (DepositMoneyCommand) modify data.
+* Queries (GetTransactionHistoryQuery) fetch data.
+
+2) Improves Performance
+
+* Writes use SQL databases (ACID-compliant).
+* Reads use NoSQL/Elasticsearch for fast lookups.
+
+3) Example Code using MediatR in .NET
+
+public class DepositMoneyCommand : IRequest`<bool>`
+
+public int AccountId { get; set; }
+public decimal Amount { get; set; }
