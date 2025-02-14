@@ -104,3 +104,73 @@ Q10. **Explain boxing and unboxing in C#. How might these concepts affect perfor
 
 * **Boxing** : The process of converting a value type (e.g., int) into a reference type (e.g., object).
 * **Unboxing** : The process of converting a reference type back into a value type. Boxing and unboxing can introduce performance overhead due to memory allocation. In financial applications, where performance is critical, unnecessary boxing should be avoided by using value types directly.
+
+
+Q11. **What are delegates and how are they used in event-driven programming in C#?**
+
+**`Answer:`**
+A delegate is a type-safe function pointer. It is used to define callback methods and can be used in event-driven programming for handling events.
+Example:
+
+```
+public delegate void PriceChangedEventHandler(decimal newPrice);
+public class Stock
+{
+    public event PriceChangedEventHandler PriceChanged;
+    public void ChangePrice(decimal newPrice)
+    {
+        PriceChanged?.Invoke(newPrice);
+    }
+}
+```
+
+Delegates are often used for event handling, such as when stock prices change or a market event occurs.
+
+
+Q12. **How would you handle floating-point inaccuracies in financial calculations?**
+
+**Answer:**
+To avoid inaccuracies in financial calculations, decimal should always be used instead of float or double. The decimal type is specifically designed for financial applications, offering a higher level of precision and eliminating rounding errors common with floating-point numbers.
+
+```
+decimal amount = 100.50m;
+decimal interestRate = 0.05m;
+decimal finalAmount = amount * interestRate;
+```
+
+
+
+Q13. **What are immutable types and why are they useful in financial applications?**
+
+**`Answer:`**
+An immutable type is one whose state cannot be changed once it is created. Examples include string and user-defined types that override methods like ToString or GetHashCode to prevent state changes.
+In financial systems, immutability is important for creating reliable, predictable objects (e.g., financial transactions or account balances), where accidental state changes could lead to inconsistencies or bugs.
+
+
+Q14. **What is a memory leak, and how would you avoid it in C#?**
+
+**`Answer:`**
+A memory leak occurs when objects are no longer in use but are still referenced, preventing the garbage collector from reclaiming their memory. To avoid memory leaks in C#, ensure that you:
+
+* Dispose of resources like database connections, file handles, etc., using IDisposable and using blocks.
+* Avoid circular references or unnecessary static references.
+* Use weak references when caching data to allow the garbage collector to collect objects when memory is needed.
+
+
+Q15. **What is the async/await pattern in C#, and how is it used to improve the responsiveness of financial applications?**
+
+**`Answer:`**
+The async/await pattern allows for asynchronous execution, enabling non-blocking operations. By using async and await, financial applications can perform I/O-bound operations (e.g., database queries, API calls) without blocking the main thread, improving performance and responsiveness.
+
+
+Q16. **How would you implement paging and sorting in a large financial dataset?**
+
+**`Answer:`**
+To implement paging and sorting efficiently, you can use `IQueryable` in combination with `Skip()` and `Take()` for paging, and `OrderBy()` for sorting.
+
+```
+var pagedData = transactions
+    .OrderBy(t => t.Date)
+    .Skip(pageNumber * pageSize)
+    .Take(pageSize);
+```
