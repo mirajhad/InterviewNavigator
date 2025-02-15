@@ -530,3 +530,95 @@ Q43. **What is the difference between composition and inheritance? Which one is 
 
 * **Inheritance** is when a class derives from another class and inherits its behavior. It's best used when the relationship is "is-a" (e.g., SavingsAccount is a BankAccount).
 * **Composition** is when a class contains an instance of another class. It's used when the relationship is "has-a" (e.g., a Customer has a BankAccount). **Composition** is generally preferred over inheritance in C#, especially in complex systems like finance, where flexibility and scalability are needed. It leads to more loosely coupled systems, which are easier to maintain and extend.
+
+
+Q44. **Explain the concept of polymorphism and how it might be used in a financial application.**
+
+**`Answer:`**
+**Polymorphism** allows objects of different types to be treated as instances of the same base type. In C#, it is achieved through method overriding and interfaces.
+In financial applications, polymorphism can be used to process various types of transactions through a common interface.
+Example:
+
+```
+public interface ITransaction
+{
+    void Process();
+}
+public class Deposit : ITransaction
+{
+    public void Process() { /* Deposit logic */ }
+}
+public class Withdrawal : ITransaction
+{
+    public void Process() { /* Withdrawal logic */ }
+}
+public class TransactionProcessor
+{
+    public void ProcessTransaction(ITransaction transaction)
+    {
+        transaction.Process();
+    }
+}
+```
+
+This allows different types of transactions to be processed with the same method.
+
+
+Q45. **What is an abstract class, and how is it different from an interface?**
+
+**`Answer:`**
+
+* An **abstract** class provides a base class with some implemented functionality but also allows derived classes to override or extend the behavior. You cannot instantiate an abstract class directly.
+* An  **interface** , on the other hand, only defines method signatures without any implementation. A class can implement multiple interfaces but can inherit from only one abstract class. In financial systems, an abstract class might represent a base class for different transaction types, whereas interfaces might define behaviors that can be implemented by different services (e.g., payment gateways).
+
+
+Q46, **What are the advantages of using delegates in C#? Provide an example in a financial system context.**
+
+**`Answer:`**
+**Delegates** are type-safe function pointers. They allow methods to be passed as parameters, enabling callback patterns, event handling, and more flexible designs.
+Example: In a financial system, delegates could be used to notify different parts of the application when a transaction status changes.
+
+```
+public delegate void TransactionStatusChangedDelegate(string status);
+public class TransactionProcessor
+{
+    public event TransactionStatusChangedDelegate OnStatusChanged;
+    public void ProcessTransaction(Transaction transaction)
+    {
+        // Process logic
+        OnStatusChanged?.Invoke("Transaction Completed");
+    }
+}
+```
+
+
+
+Q47. **Explain method overriding and method overloading. When should each be used in a financial application?**
+
+**`Answer:`**
+
+* **Method Overloading:** Allows you to define multiple methods with the same name but different parameters. It is used when the method performs similar operations but with different input parameters.  **Example** : Overloading a method to calculate interest for different account types.
+
+```
+public decimal CalculateInterest(Account account)
+{
+    // Default interest calculation
+}
+public decimal CalculateInterest(SavingsAccount account)
+{
+    // Specific calculation for savings
+}
+```
+
+* **Method Overriding:** Allows a derived class to provide a specific implementation of a method defined in its base class. It is used to modify behavior for specialized objects. **Example:** Overriding a method in a LoanAccount to calculate interest differently than in a SavingsAccount.
+
+
+Q48. **What are the key benefits of using interfaces in financial applications?**
+
+**Answer:**
+**Interfaces** allow you to define a contract without imposing any implementation. They are crucial in financial systems for flexibility, scalability, and for writing loosely coupled code.
+**Benefits include:**
+
+* Enabling multiple payment providers (e.g., credit card, PayPal) to implement the same interface (IPaymentGateway).
+* Promoting dependency injection for easier testing and mocking.
+* Supporting polymorphism by allowing different objects to share common functionality.
