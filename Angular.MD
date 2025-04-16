@@ -98,3 +98,5 @@ handling asynchronous or even synchronous events.
 To start receiving values from an observable, you need to subscribe to it.
 
 Subscriptions can be cancelled using the `unsubscribe` method, which helps in avoiding memory leaks.
+
+# Interceptors

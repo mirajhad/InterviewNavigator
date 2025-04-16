@@ -1,5 +1,0 @@
-Interceptor is an feature provided by angular http client module that allow you to intercept http request and response globally.
-Interceptors provide a way to modify or handle the request and response before they are sent to the server or delivered to the calling code.
-
-__________________________________________________________________________________________________________________________________________________________________
-Auth Guard

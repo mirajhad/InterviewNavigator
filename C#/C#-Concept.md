@@ -217,3 +217,21 @@ You can control thread behavior using various methods and properties:
 # Task
 
 **Task** represents an asynchronous operation. It’s part of the `System.Threading.Tasks` namespace and is used to perform operations asynchronously on thread pool threads rather than the main thread.
+
+# InstanceOf
+
+We cannot create an instance of an interface.
+
+We cannot create an instance of an Abstract Class.
+
+No, you cannot create an instance of a static class in C#.
+
+# Inherit
+
+No, you cannot inherit a static class in C#
+
+you  **cannot inherit a private class** .
+
+Yes, you can inherit an abstract class in C#.
+
+Yes, in C#, you can inherit one interface from another.
